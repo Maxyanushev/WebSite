@@ -1,0 +1,355 @@
+<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDart – Zegary</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="zegary-page">
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="blog.html">Strefa wiedzy</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions -->
+            <!-- <div class="header-actions">
+                <div class="recently-viewed">
+                    <button class="recently-viewed-btn" onclick="toggleRecentlyViewed()">Ostatnio oglądane</button>
+                    <div class="recently-viewed-dropdown" id="recentlyViewedDropdown">
+                        <div id="recentlyViewedItems">
+                        </div>
+                    </div>
+                </div>
+                <a href="wishlist.html" class="wishlist-icon" aria-label="Lista życzeń">
+                    ❤️
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div> -->
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <section class="section section-pad-small">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <span class="current">Zegary</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Category Header -->
+        <section class="section section-pad-small">
+            <div class="container" data-reveal>
+                <div class="section-head">
+                    <h1 class="handwritten">Zegary</h1>
+                    <p class="lead">Unikatowe zegary z żywicy epoksydowej, które łączą funkcjonalność z pięknem. Każdy zegar to wyjątkowe dzieło sztuki, które doda charakteru Twojemu wnętrzu.</p>
+                    <p class="price-info">Ceny od 250 zł – finalna wycena zależy od rozmiaru, wzoru i dodatków.</p>
+                    <p class="lead" style="margin-top: 1rem; font-style: italic; color: var(--brown);">✨ Masz wymarzony zegar? <a href="kontakt.html" style="color: var(--brown); text-decoration: underline;">Skontaktuj się z nami</a>, a stworzymy coś wyjątkowego!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Products Grid -->
+        <section class="section section-pad">
+            <div class="container">
+                <div class="products-grid">
+                    <!-- Zegar 1 - Różowy -->
+                    <a href="#" class="product-card featured" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarroz/1.jpeg" alt="Zegar różowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar różowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 2 - Różowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarroz/2.jpeg" alt="Zegar różowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar różowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 3 - Różowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarroz/3.jpeg" alt="Zegar różowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar różowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 4 - Różowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarroz/4.jpeg" alt="Zegar różowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar różowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 5 - Różowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarroz/product5.jpeg" alt="Zegar różowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar różowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 6 - Niebieski -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarniebiski/product31.jpeg" alt="Zegar niebieski">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar niebieski</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 7 - Niebieski -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarniebiski/product32.jpeg" alt="Zegar niebieski">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar niebieski</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 8 - Niebieski -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarniebiski/product33.jpeg" alt="Zegar niebieski">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar niebieski</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 9 - Niebieski -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarniebiski/product34.jpeg" alt="Zegar niebieski">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar niebieski</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 10 - Niebieski -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarniebiski/product35.jpeg" alt="Zegar niebieski">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar niebieski</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 11 - Niebieski -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarniebiski/product36.jpeg" alt="Zegar niebieski">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar niebieski</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 12 - Brązowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarbraz/product66.jpeg" alt="Zegar brązowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar brązowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 13 - Brązowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarbraz/product67.jpeg" alt="Zegar brązowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar brązowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 14 - Brązowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarbraz/product68.jpeg" alt="Zegar brązowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar brązowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 15 - Brązowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarbraz/product69.jpeg" alt="Zegar brązowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar brązowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 16 - Brązowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarbraz/product70.jpeg" alt="Zegar brązowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar brązowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 17 - Brązowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarbraz/product71.jpeg" alt="Zegar brązowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar brązowy</h3>
+                        </div>
+                    </a>
+
+                    <!-- Zegar 18 - Brązowy -->
+                    <a href="#" class="product-card" data-reveal>
+                        <div class="product-image">
+                            <img src="images/products/zegarbraz/product72.jpeg" alt="Zegar brązowy">
+                            <div class="product-overlay">
+                                <span class="btn btn-primary">Zobacz szczegóły</span>
+                            </div>
+                        </div>
+                        <div class="product-info">
+                            <h3>Zegar brązowy</h3>
+                        </div>
+                    </a>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="section section-pad accent-bg">
+            <div class="container" data-reveal>
+                <div class="cta-content">
+                    <h2>Nie znalazłeś idealnego zegara?</h2>
+                    <p>Skontaktuj się z nami, a stworzymy zegar specjalnie dla Ciebie!</p>
+                    <div class="actions">
+                        <a class="btn btn-primary" href="kontakt.html">Skontaktuj się</a>
+                        <a class="btn btn-ghost" href="shop.html">Wróć do sklepu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-hand">MDart</span>
+                <p>Unikatowe wyroby z żywicy epoksydowej</p>
+            </div>
+            <nav aria-label="Footer">
+                <ul class="footer-menu">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            <p class="copyright">© <span id="year"></span> MDart. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
