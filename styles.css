@@ -201,7 +201,7 @@ h3{font-size:clamp(16px, 1.8vw, 20px)}
   padding:80px 0; 
   background:
     linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(248,245,240,0.15) 100%),
-    url("images/products/onas/1.jpeg");
+    url("/images/products/onas/1.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -562,11 +562,11 @@ h3{font-size:clamp(16px, 1.8vw, 20px)}
 /* Wine glass image rotation */
 .wine-glass-img{animation:rotateImages 8s infinite}
 @keyframes rotateImages{
-  0%, 20% {content:url('images/products/product7.jpg')}
-  20%, 40% {content:url('images/products/product7_2.jpg')}
-  40%, 60% {content:url('images/products/product7_3.jpg')}
-  60%, 80% {content:url('images/products/product7_4.jpg')}
-  80%, 100% {content:url('images/products/product7_5.jpg')}
+  0%, 20% {content:url('/images/products/product7.jpg')}
+  20%, 40% {content:url('/images/products/product7_2.jpg')}
+  40%, 60% {content:url('/images/products/product7_3.jpg')}
+  60%, 80% {content:url('/images/products/product7_4.jpg')}
+  80%, 100% {content:url('/images/products/product7_5.jpg')}
 }
 
 /* Feature */
@@ -584,7 +584,7 @@ h3{font-size:clamp(16px, 1.8vw, 20px)}
   padding:80px 0; 
   background:
     linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(253,252,250,0.4) 100%),
-    url("images/products/onas/16.jpeg");
+    url("/images/products/onas/16.jpeg");
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
