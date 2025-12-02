@@ -1,0 +1,477 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDart – Domek w kole</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .color-selector {
+            margin: 20px 0;
+        }
+        .color-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+        .color-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        .color-option:hover {
+            border-color: var(--brown);
+            transform: translateY(-2px);
+        }
+        .color-option.selected {
+            border-color: var(--brown);
+            background: var(--cream);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .color-option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .color-option label {
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .color-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 10px;
+            border: 2px solid #ddd;
+        }
+        .color-swatch.pink {
+            background: linear-gradient(135deg, #FFB6C1, #FF69B4);
+        }
+        .color-swatch.red {
+            background: linear-gradient(135deg, #DC143C, #8B0000);
+        }
+        .color-swatch.black {
+            background: linear-gradient(135deg, #2C2C2C, #000000);
+        }
+        
+        /* Image Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: hidden;
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            transition: transform 0.1s ease;
+            cursor: grab;
+        }
+        .modal-content:active {
+            cursor: grabbing;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 10000;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+        .zoom-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10000;
+        }
+        .zoom-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid #fff;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .zoom-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        .zoom-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 10000;
+        }
+        .main-image img {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="blog.html">Strefa wiedzy</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions --><!-- <div class="header-actions">...</div> -->
+                </div>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-section">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <a href="ozdoby-choinkowe.html">Ozdoby choinkowe</a>
+                    <span class="separator">›</span>
+                    <span class="current">Domek w kole</span>
+                </nav>
+
+                <div class="product-page">
+                    <!-- Product Gallery -->
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/ozdobychoinkowe/domekwkole/2.jpg?v=1" alt="Domek w kole - widok główny" loading="eager" onclick="openModal(this.src)" style="cursor: zoom-in;">
+                        </div>
+                        <div class="thumbnail-gallery" id="thumbnailGallery">
+                            <!-- Thumbnails will be updated based on color selection -->
+                            <img src="images/products/ozdobychoinkowe/domekwkole/2.jpg?v=1" alt="Domek w kole różowy" class="thumbnail active" onclick="openModal(this.src)" style="cursor: pointer;">
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Domek w kole</h1>
+                        <div class="product-price-large" id="productPrice">25 zł</div>
+                        
+                        <div class="product-description">
+                            <p class="lead">Ten bajkowy domek zamknięty w okrągłej ramce to coś więcej niż ozdoba. To symbol ciepła domowego ogniska, przytulności i spokoju zimowych wieczorów. Wykonany z dbałością o każdy szczegół, emanuje magią i harmonią.</p>
+                            <p>Okrągła forma przypomina o wieczności i pełni, a domek o miejscu, do którego zawsze chcemy wracać. Każda ozdoba powstaje ręcznie, z miłością do detali i tradycji. Idealna dla rodzin, które pielęgnują ciepłą atmosferę Świąt.</p>
+                            
+                            <!-- Color Selector -->
+                            <div class="color-selector">
+                                <h3>Wybierz wariant:</h3>
+                                <div class="color-options">
+                                    <div class="color-option selected" id="opt-pink" onclick="changeVariant('pink')">
+                                        <input type="radio" name="variant" value="pink" checked>
+                                        <label>Różowy</label>
+                                        <div class="color-swatch pink"></div>
+                                    </div>
+                                    <div class="color-option" id="opt-red" onclick="changeVariant('red')">
+                                        <input type="radio" name="variant" value="red">
+                                        <label>Czerwony</label>
+                                        <div class="color-swatch red"></div>
+                                    </div>
+                                    <div class="color-option" id="opt-black" onclick="changeVariant('black')">
+                                        <input type="radio" name="variant" value="black">
+                                        <label>Czarny</label>
+                                        <div class="color-swatch black"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed">
+                                <div class="spec-row">
+                                    <span class="spec-label">Średnica koła:</span>
+                                    <span class="spec-value">~8 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Grubość:</span>
+                                    <span class="spec-value">~0.5 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Materiał:</span>
+                                    <span class="spec-value">Żywica epoksydowa</span>
+                                </div>
+                            </div>
+
+                            <h3>Co sprawia, że jest wyjątkowa?</h3>
+                            <ul class="product-features">
+                                <li>Ręcznie tworzony z miłością do detali</li>
+                                <li>Bajkowy domek zamknięty w okrągłej ramce – symbol wieczności</li>
+                                <li>Przejrzysta żywica najwyższej jakości</li>
+                                <li>Delikatne kolory, które ocieplą Twoją choinkę</li>
+                                <li>Każda ozdoba jest niepowtarzalna – nie ma dwóch identycznych</li>
+                                <li>Trwała forma zachowuje swój blask na lata</li>
+                                <li>Dostępny w kilku kolorystycznych wariantach</li>
+                                <li>Nadaje się jako wartościowy prezent dla bliskich osób</li>
+                            </ul>
+                            
+                            <div class="info-box" style="background: var(--cream); padding: 15px; border-radius: 8px; margin-top: 20px;">
+                                <p style="margin: 0;"><strong>Niepowtarzalny charakter:</strong> Każda ozdoba jest ręcznie wykonana z pasją, dlatego może delikatnie różnić się od prezentowanej. Ta naturalna różnorodność sprawia, że każdy egzemplarz ma własny charakter i niepowtarzalny urok.</p>
+                            </div>
+
+                            <p style="margin-top: 20px; font-style: italic; color: var(--brown);">Niech ten domek przypomina o miejscu, do którego zawsze chcemy wracać – o ciepłe rodzinnego domu, przytulności i spokoju. To ozdoba, która wnosi harmonię i poczucie bezpiecznego schronienia.</p>
+                        </div>
+
+                        <!-- Add to Cart --><!-- <div class="add-to-cart-section">...</div> -->
+
+                        <!-- Additional Info -->
+                        <div class="product-additional-info">
+                            <div class="info-item">
+                                <h4>🚚 Dostawa</h4>
+                                <p>Darmowa dostawa przy zamówieniach powyżej 200 zł</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>🎄 Świąteczna ozdoba</h4>
+                                <p>Bezpieczna alternatywa dla szklanych ozdób</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>📞 Kontakt</h4>
+                                <p>Masz pytania? <a href="kontakt.html">Skontaktuj się z nami</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <section class="related-products">
+                    <h2>Inne ozdoby choinkowe</h2>
+                    <div class="products-grid">
+                        <!-- Add more Christmas decorations here as they become available -->
+                    </div>
+                    <div class="text-center" style="margin-top: 30px;">
+                        <a href="ozdoby-choinkowe.html" class="btn btn-ghost">Zobacz wszystkie ozdoby choinkowe</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="handwritten">MDart</h3>
+                    <p>Tworzymy unikatowe wyroby z żywicy epoksydowej, które dodają charakteru każdemu wnętrzu.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>📧 mdartzywica@gmail.com</p>
+                    <p>📱 +48 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Śledź nas</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">📷 Instagram</a>
+                        <a href="#" aria-label="Facebook">📘 Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MDart. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="zoomOut(event)">−</button>
+            <button class="zoom-btn" onclick="zoomIn(event)">+</button>
+        </div>
+        <div class="zoom-info" id="zoomInfo">100%</div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // KONFIGURACJA WARIANTÓW - TAK JAK W ANIOŁKU!
+        const variants = {
+            pink: {
+                name: 'Różowy',
+                price: 25,
+                images: [
+                    'images/products/ozdobychoinkowe/domekwkole/2.jpg'
+                ]
+            },
+            red: {
+                name: 'Czerwony',
+                price: 25,
+                images: [
+                    'images/products/ozdobychoinkowe/domekwkole/3.jpg'
+                ]
+            },
+            black: {
+                name: 'Czarny',
+                price: 35,
+                images: [
+                    'images/products/ozdobychoinkowe/domekwkole/4.jpg',
+                    'images/products/ozdobychoinkowe/domekwkole/5.jpg'
+                ]
+            }
+        };
+
+        let currentVariant = 'pink';
+        let modalImages = variants.pink.images;
+        let currentModalIndex = 0;
+
+        // ZMIANA WARIANTU - PROSTA FUNKCJA
+        function changeVariant(variantName) {
+            currentVariant = variantName;
+            const variant = variants[variantName];
+            const mainImage = document.getElementById('mainImage');
+            const gallery = document.getElementById('thumbnailGallery');
+            const priceEl = document.getElementById('productPrice');
+            const cartText = document.getElementById('addToCartText');
+            
+            // Zmień cenę
+            priceEl.textContent = variant.price + ' zł';
+            cartText.textContent = 'Dodaj do koszyka - ' + variant.price + ' zł';
+            
+            // Zmień główne zdjęcie
+            mainImage.src = variant.images[0];
+            mainImage.style.cursor = 'pointer';
+            
+            // Zaktualizuj obrazy dla modala
+            modalImages = variant.images;
+            
+            // Zmień miniaturki
+            gallery.innerHTML = '';
+            variant.images.forEach((img, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = img;
+                thumb.className = 'thumbnail' + (index === 0 ? ' active' : '');
+                thumb.style.cursor = 'pointer';
+                thumb.onclick = function() {
+                    mainImage.src = img;
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    openModal(img);
+                };
+                gallery.appendChild(thumb);
+            });
+            
+            // Zaznacz wybrany wariant
+            document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+            document.getElementById('opt-' + variantName).classList.add('selected');
+        }
+
+        // ILOŚĆ
+        function increaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) < 10) {
+                input.value = parseInt(input.value) + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // DODAJ DO KOSZYKA
+        function addToCart() {
+            alert('Produkt dodany do koszyka!');
+        }
+
+        // MODAL IMAGE
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            currentModalIndex = modalImages.indexOf(imageSrc);
+            if (currentModalIndex === -1) currentModalIndex = 0;
+
+            modal.style.display = 'block';
+            modalImg.src = modalImages[currentModalIndex];
+        }
+
+        function prevImage() {
+            currentModalIndex = (currentModalIndex - 1 + modalImages.length) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        function nextImage() {
+            currentModalIndex = (currentModalIndex + 1) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // INICJALIZACJA
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            mainImage.style.cursor = 'pointer';
+            mainImage.addEventListener('click', function() {
+                openModal(this.src);
+            });
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    // Po zmianie głównego zdjęcia, następny klik na mainImage otworzy modal
+                });
+            });
+        });
+    </script>
+</body>
+</html>

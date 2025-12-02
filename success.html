@@ -1,0 +1,109 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Płatność zakończona – MDart</title>
+    <meta name="description" content="Dziękujemy za zakup! Twoje zamówienie zostało przyjęte i będzie wkrótce zrealizowane.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='64'%3E✦%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <li><a href="blog.html">Blog</a></li>
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="section section-pad">
+            <div class="container">
+                <div class="success-content" data-reveal>
+                    <div class="success-icon">
+                        ✅
+                    </div>
+                    <h1>Płatność zakończona pomyślnie!</h1>
+                    <p class="success-message">Dziękujemy za zakup! Twoje zamówienie zostało przyjęte i będzie wkrótce zrealizowane.</p>
+                    
+                    <div class="order-details">
+                        <h3>Szczegóły zamówienia</h3>
+                        <div class="order-info">
+                            <p><strong>Numer zamówienia:</strong> <span id="order-number">#MD-2024-001</span></p>
+                            <p><strong>Data zamówienia:</strong> <span id="order-date"></span></p>
+                            <p><strong>Status:</strong> <span class="status-processing">W trakcie realizacji</span></p>
+                        </div>
+                    </div>
+                    
+                    <div class="next-steps">
+                        <h3>Co dalej?</h3>
+                        <ul>
+                            <li>Otrzymasz e-mail z potwierdzeniem zamówienia</li>
+                            <li>Skontaktujemy się z Tobą w ciągu 24 godzin</li>
+                            <li>Twoje zamówienie zostanie zrealizowane w ciągu 7-14 dni roboczych</li>
+                            <li>Otrzymasz informację o wysyłce</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="success-actions">
+                        <a href="shop.html" class="btn btn-primary">Kontynuuj zakupy</a>
+                        <a href="kontakt.html" class="btn btn-secondary">Skontaktuj się z nami</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-hand">MDart</span>
+                <p>Unikatowe wyroby z żywicy epoksydowej</p>
+            </div>
+            <nav aria-label="Footer">
+                <ul class="footer-menu">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <li><a href="blog.html">Blog</a></li>
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            <p class="copyright">© <span id="year"></span> MDart. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Set order date
+        document.getElementById('order-date').textContent = new Date().toLocaleDateString('pl-PL');
+        
+        // Clear cart after successful payment
+        localStorage.removeItem('cart');
+        
+        // Generate order number
+        const orderNumber = 'MD-' + new Date().getFullYear() + '-' + String(Math.floor(Math.random() * 1000)).padStart(3, '0');
+        document.getElementById('order-number').textContent = orderNumber;
+    </script>
+</body>
+</html>
+
+
+
+

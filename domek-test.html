@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>TEST - Domek w kole</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .gallery { display: flex; gap: 20px; }
+        .main-image img { max-width: 400px; border: 2px solid #ccc; }
+        .color-buttons { margin: 20px 0; }
+        button { padding: 15px 30px; font-size: 16px; cursor: pointer; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>TEST - Domek w kole</h1>
+    
+    <div class="color-buttons">
+        <button onclick="changeToRed()">🔴 CZERWONY</button>
+        <button onclick="changeToPink()">💗 RÓŻOWY</button>
+    </div>
+    
+    <div class="gallery">
+        <div class="main-image">
+            <img id="mainPhoto" src="images/products/ozdobychoinkowe/domekwkole/1.jpg" alt="Domek">
+        </div>
+    </div>
+    
+    <div id="info" style="margin-top: 20px; padding: 10px; background: #f0f0f0;">
+        Aktualny kolor: <span id="currentColor">różowy</span>
+    </div>
+
+    <script>
+        function changeToRed() {
+            console.log('Zmieniam na CZERWONY');
+            document.getElementById('mainPhoto').src = 'images/products/ozdobychoinkowe/domekwkole/3.jpg';
+            document.getElementById('currentColor').textContent = 'czerwony';
+            alert('Zmieniono na CZERWONY (3.jpg)');
+        }
+        
+        function changeToPink() {
+            console.log('Zmieniam na RÓŻOWY');
+            document.getElementById('mainPhoto').src = 'images/products/ozdobychoinkowe/domekwkole/1.jpg';
+            document.getElementById('currentColor').textContent = 'różowy';
+            alert('Zmieniono na RÓŻOWY (1.jpg)');
+        }
+        
+        console.log('=== STRONA TESTOWA ZAŁADOWANA ===');
+        console.log('Kliknij na przyciski powyżej aby zmienić zdjęcie');
+    </script>
+</body>
+</html>
+

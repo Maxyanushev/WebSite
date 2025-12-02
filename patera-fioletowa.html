@@ -1,0 +1,352 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDart – Patera fioletowa trzypiętrowa</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="blog.html">Strefa wiedzy</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions -->
+            <!-- <div class="header-actions">
+                <div class="recently-viewed">
+                    <button class="recently-viewed-btn" onclick="toggleRecentlyViewed()">Ostatnio oglądane</button>
+                    <div class="recently-viewed-dropdown" id="recentlyViewedDropdown">
+                        <div id="recentlyViewedItems">
+                        </div>
+                    </div>
+                </div>
+                <a href="wishlist.html" class="wishlist-icon" aria-label="Lista życzeń">
+                    ❤️
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div> -->
+        </div>
+    </header>
+
+    <main>
+        <!-- Breadcrumb -->
+        <section class="section section-pad-small">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <a href="patery.html">Patery</a>
+                    <span class="separator">›</span>
+                    <span class="current">Patera fioletowa trzypiętrowa</span>
+                </nav>
+            </div>
+        </section>
+
+        <!-- Product Details -->
+        <section class="section section-pad">
+            <div class="container">
+                <div class="product-page-layout">
+                    <!-- Product Gallery -->
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/patera1/product74.jpeg?v=1" alt="Patera fioletowa trzypiętrowa - widok główny" loading="eager">
+                        </div>
+                        <div class="thumbnail-gallery">
+                            <img src="images/products/patera1/product74.jpeg?v=1" alt="Patera fioletowa - widok 1" class="thumbnail active" onclick="changeImage(this, 'images/products/patera1/product74.jpeg?v=1')">
+                            <img src="images/products/patera1/product73.jpeg?v=1" alt="Patera fioletowa - widok 2" class="thumbnail" onclick="changeImage(this, 'images/products/patera1/product73.jpeg?v=1')">
+                            <img src="images/products/patera1/product75.jpeg?v=1" alt="Patera fioletowa - widok 3" class="thumbnail" onclick="changeImage(this, 'images/products/patera1/product75.jpeg?v=1')">
+                            <img src="images/products/patera1/product76.jpeg?v=1" alt="Patera fioletowa - widok 4" class="thumbnail" onclick="changeImage(this, 'images/products/patera1/product76.jpeg?v=1')">
+                            <img src="images/products/patera1/product77.jpeg?v=1" alt="Patera fioletowa - widok 5" class="thumbnail" onclick="changeImage(this, 'images/products/patera1/product77.jpeg?v=1')">
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Patera fioletowa trzypiętrowa</h1>
+                        <div class="product-price-large">389 zł</div>
+                        
+                        <div class="product-description">
+                            <p class="lead">Spektakularna trzypiętrowa patera w eleganckim fioletowym kolorze z delikatnymi wzorami żywicy. Idealna do prezentacji deserów, owoców lub jako dekoracja.</p>
+                            
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed">
+                                <div class="spec-row">
+                                    <span class="spec-label">Wysokość całkowita:</span>
+                                    <span class="spec-value">37 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Średnica dolnego talerza:</span>
+                                    <span class="spec-value">26 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Średnica środkowego talerza:</span>
+                                    <span class="spec-value">20 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Średnica górnego talerza:</span>
+                                    <span class="spec-value">16 cm</span>
+                                </div>
+                            </div>
+
+                            <h3>Materiały i wykonanie:</h3>
+                            <ul class="product-features">
+                                <li>Wysokiej jakości żywica epoksydowa</li>
+                                <li>Fioletowy pigment z delikatnymi wzorami</li>
+                                <li>Wykończenie matowe z połyskiem</li>
+                                <li>Odporna na zarysowania i wilgoć</li>
+                                <li>Bezpieczna do kontaktu z żywnością</li>
+                            </ul>
+
+                            <h3>Zastosowanie:</h3>
+                            <p>Idealna do prezentacji deserów, owoców, przekąsek, a także jako elegancka dekoracja stołu. Sprawdzi się zarówno w domu, jak i w restauracji.</p>
+                        </div>
+
+                        <!-- Add to Cart --><!-- <div class="add-to-cart-section">...</div> -->
+
+                        <!-- Additional Info -->
+                        <div class="product-additional-info">
+                            <div class="info-item">
+                                <h4>🚚 Dostawa</h4>
+                                <p>Darmowa dostawa przy zamówieniach powyżej 200 zł</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>🔒 Bezpieczeństwo</h4>
+                                <p>Bezpieczne płatności i gwarancja jakości</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>📞 Kontakt</h4>
+                                <p>Masz pytania? <a href="kontakt.html">Skontaktuj się z nami</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Related Products -->
+        <section class="section section-pad accent-bg">
+            <div class="container" data-reveal>
+                <h2 class="text-center">Inne patery w naszej ofercie</h2>
+                <div class="related-products">
+                    <a href="patery.html" class="related-product">
+                        <img src="images/products/patera1/product73.jpeg" alt="Patera elegancka">
+                        <h4>Patera elegancka</h4>
+                        <span class="price">od 280 zł</span>
+                    </a>
+                    <a href="patery.html" class="related-product">
+                        <img src="images/products/patera1/product75.jpeg" alt="Patera nowoczesna">
+                        <h4>Patera nowoczesna</h4>
+                        <span class="price">od 320 zł</span>
+                    </a>
+                    <a href="patery.html" class="related-product">
+                        <img src="images/products/patera1/product76.jpeg" alt="Patera artystyczna">
+                        <h4>Patera artystyczna</h4>
+                        <span class="price">od 290 zł</span>
+                    </a>
+                </div>
+                <div class="text-center" style="margin-top: 30px;">
+                    <a href="patery.html" class="btn btn-ghost">Zobacz wszystkie patery</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-hand">MDart</span>
+                <p>Unikatowe wyroby z żywicy epoksydowej</p>
+            </div>
+            <nav aria-label="Footer">
+                <ul class="footer-menu">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            <p class="copyright">© <span id="year"></span> MDart. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <span class="image-modal-close" onclick="closeModal()">&times;</span>
+        <span class="image-modal-nav image-modal-prev" onclick="event.stopPropagation(); prevImage()">‹</span>
+        <span class="image-modal-nav image-modal-next" onclick="event.stopPropagation(); nextImage()">›</span>
+        <img class="image-modal-content" id="modalImage" alt="Powiększone zdjęcie">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Zmiana głównego zdjęcia
+        function changeImage(element, src) {
+            document.getElementById('mainImage').src = src;
+            
+            // Usuń active z wszystkich miniaturek
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            
+            // Dodaj active do klikniętej miniaturki
+            element.classList.add('active');
+        }
+
+
+        // Tablica zdjęć dla modala
+        const modalImages = [
+            'images/products/patera1/product74.jpeg?v=1',
+            'images/products/patera1/product73.jpeg?v=1',
+            'images/products/patera1/product75.jpeg?v=1',
+            'images/products/patera1/product76.jpeg?v=1',
+            'images/products/patera1/product77.jpeg?v=1'
+        ];
+        let currentModalIndex = 0;
+
+        // Otwórz modal z powiększonym zdjęciem
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Znajdź indeks aktualnego zdjęcia
+            currentModalIndex = modalImages.indexOf(imageSrc);
+            if (currentModalIndex === -1) currentModalIndex = 0;
+            
+            modal.style.display = 'block';
+            modalImg.src = modalImages[currentModalIndex];
+        }
+
+        // Poprzednie zdjęcie
+        function prevImage() {
+            currentModalIndex = (currentModalIndex - 1 + modalImages.length) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        // Następne zdjęcie
+        function nextImage() {
+            currentModalIndex = (currentModalIndex + 1) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        // Zamknij modal
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Dodaj obsługę kliknięcia na główne zdjęcie i miniaturki
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.style.cursor = 'pointer';
+            mainImage.addEventListener('click', function() {
+                openModal(this.src);
+            });
+            
+            // Dodaj kursor pointer do miniaturek
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.style.cursor = 'pointer';
+            });
+        });
+        
+        // Kontrola ilości
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+                updatePrice();
+            }
+        }
+        
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+                updatePrice();
+            }
+        }
+        
+        function updatePrice() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const price = 389;
+            const totalPrice = quantity * price;
+            document.querySelector('.btn-large').textContent = `Dodaj do koszyka - ${totalPrice} zł`;
+        }
+        
+        // Dodaj do koszyka
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const price = 389;
+            
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            
+            const existingItem = cart.find(item => item.id === 'patera-fioletowa');
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cart.push({
+                    id: 'patera-fioletowa',
+                    name: 'Patera fioletowa trzypiętrowa',
+                    price: price,
+                    quantity: quantity
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            showNotification(`Dodano ${quantity} szt. do koszyka!`);
+        }
+        
+        // Dodaj do ulubionych
+        function addToWishlist() {
+            showNotification('Dodano do ulubionych!');
+        }
+        
+        // Powiadomienia
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.className = 'notification';
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: var(--brown);
+                color: white;
+                padding: 15px 20px;
+                border-radius: 8px;
+                z-index: 1000;
+                animation: slideIn 0.3s ease;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,530 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDart – Jeleń</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Image Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: hidden;
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+            transition: transform 0.1s ease;
+            cursor: grab;
+        }
+        .modal-content:active {
+            cursor: grabbing;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 10000;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+        .zoom-controls {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: flex;
+            gap: 10px;
+            z-index: 10000;
+        }
+        .zoom-btn {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid #fff;
+            color: #fff;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+        .zoom-btn:hover {
+            background: rgba(255,255,255,0.4);
+        }
+        .zoom-info {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            background: rgba(0,0,0,0.6);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            z-index: 10000;
+        }
+        .main-image img {
+            cursor: zoom-in;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="blog.html">Strefa wiedzy</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions --><!-- <div class="header-actions">...</div> -->
+                </div>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-section">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <a href="ozdoby-choinkowe.html">Ozdoby choinkowe</a>
+                    <span class="separator">›</span>
+                    <span class="current">Jeleń</span>
+                </nav>
+
+                <div class="product-page">
+                    <!-- Product Gallery -->
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/ozdobychoinkowe/jelen/1.jpg" alt="Jeleń - widok główny" loading="eager" onclick="openModal(this.src)" style="cursor: zoom-in;">
+                        </div>
+                        <div class="thumbnail-gallery" id="thumbnailGallery">
+                            <img src="images/products/ozdobychoinkowe/jelen/1.jpg" alt="Jeleń widok 1" class="thumbnail active" onclick="openModal(this.src)" style="cursor: pointer;">
+                            <img src="images/products/ozdobychoinkowe/jelen/2.jpg" alt="Jeleń widok 2" class="thumbnail" onclick="openModal(this.src)" style="cursor: pointer;">
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Jeleń</h1>
+                        <div class="product-price-large" id="productPrice">35 zł</div>
+                        
+                        <div class="product-description">
+                            <p class="lead">Ten majestatyczny jeleń to coś więcej niż ozdoba. To symbol godności, spokoju i piękna dzikiej przyrody. Wykonany z dbałością o każdy szczegół, emanuje siłą i szlachetnością, przyciągając wzrok swoją elegancką formą.</p>
+                            <p>Jeleń od wieków był symbolem wolności i duchowej mocy. Każda ozdoba powstaje ręcznie, z szacunkiem do natury i tradycji. Idealna dla tych, którzy kochają zimowe lasy i chcą przynieść odrobinę ich magii do swojego domu.</p>
+                            
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed">
+                                <div class="spec-row">
+                                    <span class="spec-label">Wysokość:</span>
+                                    <span class="spec-value">~9 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Szerokość:</span>
+                                    <span class="spec-value">~7 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Grubość:</span>
+                                    <span class="spec-value">~0.5 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Materiał:</span>
+                                    <span class="spec-value">Żywica epoksydowa najwyższej jakości</span>
+                                </div>
+                            </div>
+
+                            <h3>Co ją wyróżnia?</h3>
+                            <ul class="product-features">
+                                <li>Elegancka sylwetka jelenia – symbol natury i wolności</li>
+                                <li>Ręcznie wykonana z dbałością o każdy szczegół</li>
+                                <li>Przejrzysta żywica najwyższej jakości podkreśla piękno wzoru</li>
+                                <li>Subtelne, naturalne kolory harmonizujące z zimowym krajobrazem</li>
+                                <li>Każda ozdoba jest unikatowa – nie ma dwóch identycznych</li>
+                                <li>Trwała forma zachowuje swój blask na lata</li>
+                                <li>Nadaje się jako wartościowy prezent dla miłośników przyrody</li>
+                            </ul>
+
+                            <div class="info-box" style="background: var(--cream); padding: 15px; border-radius: 8px; margin-top: 20px;">
+                                <p style="margin: 0;"><strong>Niepowtarzalny charakter:</strong> Każda ozdoba jest ręcznie wykonana z pasją, dlatego może delikatnie różnić się od prezentowanej. Ta naturalna różnorodność sprawia, że każdy egzemplarz ma własny charakter i niepowtarzalny urok.</p>
+                            </div>
+
+                            <p style="margin-top: 20px; font-style: italic; color: var(--brown);">Niech ten jeleń przypomina o pięknie dzikiej przyrody i spokoju zimowych lasów. To ozdoba, która wnosi do domu cząstkę natury – jej godność, siłę i harmonię.</p>
+                        </div>
+
+                        <!-- Add to Cart --><!-- <div class="add-to-cart-section">...</div> -->
+
+                        <!-- Additional Info -->
+                        <div class="product-additional-info">
+                            <div class="info-item">
+                                <h4>🚚 Dostawa</h4>
+                                <p>Darmowa dostawa przy zamówieniach powyżej 200 zł</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>🎄 Świąteczna ozdoba</h4>
+                                <p>Bezpieczna alternatywa dla szklanych ozdób</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>📞 Kontakt</h4>
+                                <p>Masz pytania? <a href="kontakt.html">Skontaktuj się z nami</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <section class="related-products">
+                    <h2>Inne ozdoby choinkowe</h2>
+                    <div class="products-grid">
+                        <!-- Add more Christmas decorations here as they become available -->
+                    </div>
+                    <div class="text-center" style="margin-top: 30px;">
+                        <a href="ozdoby-choinkowe.html" class="btn btn-ghost">Zobacz wszystkie ozdoby choinkowe</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="handwritten">MDart</h3>
+                    <p>Tworzymy unikatowe wyroby z żywicy epoksydowej, które dodają charakteru każdemu wnętrzu.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>📧 mdartzywica@gmail.com</p>
+                    <p>📱 +48 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Śledź nas</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">📷 Instagram</a>
+                        <a href="#" aria-label="Facebook">📘 Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MDart. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div class="zoom-controls">
+            <button class="zoom-btn" onclick="zoomOut(event)">−</button>
+            <button class="zoom-btn" onclick="zoomIn(event)">+</button>
+        </div>
+        <div class="zoom-info" id="zoomInfo">100%</div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Thumbnail gallery functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            // Add click handlers to thumbnails
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    mainImage.src = this.src;
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Make main image clickable for modal
+            mainImage.style.cursor = 'pointer';
+            mainImage.addEventListener('click', function() {
+                openModal();
+            });
+        });
+
+        // Quantity controls
+        function increaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) < 10) {
+                input.value = parseInt(input.value) + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // Add to cart
+        function addToCart() {
+            const quantity = document.getElementById('quantity').value;
+            const product = {
+                id: 'jelen',
+                name: 'Jeleń',
+                price: 35,
+                image: 'images/products/ozdobychoinkowe/jelen/1.jpg',
+                quantity: parseInt(quantity)
+            };
+            
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const existingItem = cartItems.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += product.quantity;
+            } else {
+                cartItems.push(product);
+            }
+            
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            
+            // Update cart count
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+            
+            alert('Produkt dodany do koszyka!');
+        }
+
+        // Add to wishlist
+        function addToWishlist() {
+            const product = {
+                id: 'jelen',
+                name: 'Jeleń',
+                price: 35,
+                image: 'images/products/ozdobychoinkowe/jelen/1.jpg'
+            };
+            
+            let wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+            const existingItem = wishlistItems.find(item => item.id === product.id);
+            
+            if (!existingItem) {
+                wishlistItems.push(product);
+                localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+                alert('Produkt dodany do ulubionych!');
+            } else {
+                alert('Ten produkt jest już w Twoich ulubionych!');
+            }
+        }
+
+        // Modal zoom functionality
+        let zoomLevel = 1;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
+
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            modal.style.display = 'block';
+            modalImg.src = imageSrc || document.getElementById('mainImage').src;
+            zoomLevel = 1;
+            translateX = 0;
+            translateY = 0;
+            updateZoom();
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+            zoomLevel = 1;
+            translateX = 0;
+            translateY = 0;
+        }
+
+        function zoomIn(event) {
+            event.stopPropagation();
+            zoomLevel = Math.min(zoomLevel + 0.25, 3);
+            updateZoom();
+        }
+
+        function zoomOut(event) {
+            event.stopPropagation();
+            zoomLevel = Math.max(zoomLevel - 0.25, 0.5);
+            if (zoomLevel === 1) {
+                translateX = 0;
+                translateY = 0;
+            }
+            updateZoom();
+        }
+
+        function updateZoom() {
+            const modalImg = document.getElementById('modalImage');
+            const zoomInfo = document.getElementById('zoomInfo');
+            modalImg.style.transform = `translate(calc(-50% + ${translateX}px), calc(-50% + ${translateY}px)) scale(${zoomLevel})`;
+            zoomInfo.textContent = Math.round(zoomLevel * 100) + '%';
+        }
+
+        // Mouse wheel zoom
+        document.addEventListener('DOMContentLoaded', function() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+
+            modal.addEventListener('wheel', function(e) {
+                if (modal.style.display === 'block') {
+                    e.preventDefault();
+                    if (e.deltaY < 0) {
+                        zoomLevel = Math.min(zoomLevel + 0.1, 3);
+                    } else {
+                        zoomLevel = Math.max(zoomLevel - 0.1, 0.5);
+                        if (zoomLevel === 1) {
+                            translateX = 0;
+                            translateY = 0;
+                        }
+                    }
+                    updateZoom();
+                }
+            });
+
+            // Image dragging
+            modalImg.addEventListener('mousedown', function(e) {
+                if (zoomLevel > 1) {
+                    isDragging = true;
+                    startX = e.clientX - translateX;
+                    startY = e.clientY - translateY;
+                    e.preventDefault();
+                }
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                if (isDragging && zoomLevel > 1) {
+                    translateX = e.clientX - startX;
+                    translateY = e.clientY - startY;
+                    updateZoom();
+                }
+            });
+
+            document.addEventListener('mouseup', function() {
+                isDragging = false;
+            });
+
+            // Close modal on background click
+            modal.addEventListener('click', function(e) {
+                if (e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Prevent closing when clicking image
+            modalImg.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        });
+
+        // Cart and Recently Viewed functionality
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Add to recently viewed
+        function addToRecentlyViewed(product) {
+            recentlyViewed = recentlyViewed.filter(item => item.id !== product.id);
+            recentlyViewed.unshift(product);
+            recentlyViewed = recentlyViewed.slice(0, 5);
+            localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+            updateRecentlyViewedDropdown();
+        }
+
+        // Update recently viewed dropdown
+        function updateRecentlyViewedDropdown() {
+            const container = document.getElementById('recentlyViewedItems');
+            if (recentlyViewed.length === 0) {
+                container.innerHTML = '<p style="color: var(--muted); font-size: 14px; margin: 0;">Brak ostatnio oglądanych produktów</p>';
+                return;
+            }
+
+            container.innerHTML = recentlyViewed.map(item => `
+                <a href="${item.url}" class="recently-viewed-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="recently-viewed-item-info">
+                        <p class="recently-viewed-item-name">${item.name}</p>
+                        <p class="recently-viewed-item-price">${item.price} zł</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Toggle recently viewed dropdown
+        function toggleRecentlyViewed() {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            const button = document.querySelector('.recently-viewed-btn');
+            if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateRecentlyViewedDropdown();
+            
+            // Add this product to recently viewed
+            addToRecentlyViewed({
+                id: 'jelen',
+                name: 'Jeleń',
+                price: 35,
+                image: 'images/products/ozdobychoinkowe/jelen/1.jpg',
+                url: 'jelen.html'
+            });
+        });
+    </script>
+</body>
+</html>
+

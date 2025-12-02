@@ -1,0 +1,314 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDart – Wiedźma stojąca</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="blog.html">Strefa wiedzy</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- <div class="header-actions">
+                <div class="recently-viewed">
+                    <button class="recently-viewed-btn" onclick="toggleRecentlyViewed()">Ostatnio oglądane</button>
+                    <div class="recently-viewed-dropdown" id="recentlyViewedDropdown">
+                        <div id="recentlyViewedItems"></div>
+                    </div> -->
+                </div>
+                <a href="wishlist.html" class="wishlist-icon" aria-label="Lista życzeń">
+                    ❤️
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-section">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <a href="ozdoby-choinkowe.html">Ozdoby choinkowe</a>
+                    <span class="separator">›</span>
+                    <span class="current">Wiedźma stojąca</span>
+                </nav>
+
+                <div class="product-page">
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/ozdobychoinkowe/wedzmastojaca/1.jpg" alt="Wiedźma stojąca - widok główny" loading="eager" style="cursor:pointer">
+                        </div>
+                        <div class="thumbnail-gallery" id="thumbnailGallery">
+                            <img src="images/products/ozdobychoinkowe/wedzmastojaca/1.jpg" class="thumbnail active" style="cursor:pointer">
+                            <img src="images/products/ozdobychoinkowe/wedzmastojaca/2.jpg" class="thumbnail" style="cursor:pointer">
+                        </div>
+                    </div>
+
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Wiedźma stojąca</h1>
+                        <div class="product-price-large">25 zł</div>
+                        
+                        <div class="product-description">
+                            <p class="lead">Elegancka ozdoba przedstawiająca stojącą wiedźmę. Subtelne połączenie magii i uroku w delikatnym różowym kolorze.</p>
+                            <p>Ręcznie wykonana z wysokiej jakości żywicy epoksydowej. Precyzyjne wykończenie i starannie dobrane barwniki nadają ozdobie wyjątkowy charakter. Solidna konstrukcja zapewnia trwałość na lata.</p>
+                            
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed">
+                                <div class="spec-row">
+                                    <span class="spec-label">Wysokość:</span>
+                                    <span class="spec-value">~8-10 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Materiał:</span>
+                                    <span class="spec-value">Żywica epoksydowa</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Kolor:</span>
+                                    <span class="spec-value">Różowy</span>
+                                </div>
+                            </div>
+
+                            <h3>Zalety:</h3>
+                            <ul class="product-features">
+                                <li>Ręczne wykonanie z precyzją</li>
+                                <li>Wysokiej jakości żywica epoksydowa</li>
+                                <li>Odporna na zarysowania</li>
+                                <li>Trwała konstrukcja</li>
+                                <li>Każda ozdoba jest unikalna</li>
+                                <li>Delikatny różowy kolor</li>
+                                <li>Doskonała dla fanów magii</li>
+                            </ul>
+                        </div>
+
+                        <!-- Add to Cart -->
+                        <!-- Add to Cart -->
+                        <!-- <div class="add-to-cart-section">
+                            <div class="quantity-selector">
+                                <label for="quantity">Ilość:</label>
+                                <div class="quantity-controls">
+                                    <button type="button" onclick="decreaseQuantity()">-</button>
+                                    <input type="number" id="quantity" value="1" min="1" max="10">
+                                    <button type="button" onclick="increaseQuantity()">+</button>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-large" onclick="addToCart()">
+                                <span id="addToCartText">Dodaj do koszyka - 25 zł</span>
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-hand">MDart</span>
+                <p>Unikatowe wyroby z żywicy epoksydowej</p>
+            </div>
+            <nav aria-label="Footer">
+                <ul class="footer-menu">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            <p class="copyright">© <span id="year"></span> MDart. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <span class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+    </div>
+
+
+    <script src="script.js"></script>
+    <script>
+        // ILOŚĆ
+        function increaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) < 10) {
+                input.value = parseInt(input.value) + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // DODAJ DO KOSZYKA
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const product = {
+                id: 'wiedzma-stojaca',
+                name: 'Wiedźma stojąca - Różowy',
+                price: 25,
+                quantity: quantity,
+                image: 'images/products/ozdobychoinkowe/wedzmastojaca/1.jpg',
+                url: 'wiedzma-stojaca.html'
+            };
+
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const existingItem = cartItems.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cartItems.push(product);
+            }
+            
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            
+            // Update cart count
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+            
+            // Add to recently viewed
+            addToRecentlyViewed(product);
+            
+            alert('Produkt dodany do koszyka! 🎉');
+        }
+
+        // OSTATNIO OGLĄDANE
+        function addToRecentlyViewed(product) {
+            let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+            recentlyViewed = recentlyViewed.filter(item => item.id !== product.id);
+            recentlyViewed.unshift(product);
+            recentlyViewed = recentlyViewed.slice(0, 5);
+            localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+        }
+
+        // TOGGLE RECENTLY VIEWED
+        function toggleRecentlyViewed() {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Update recently viewed dropdown
+        function updateRecentlyViewedDropdown() {
+            const container = document.getElementById('recentlyViewedItems');
+            const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+            
+            if (recentlyViewed.length === 0) {
+                container.innerHTML = '<p style="color: var(--muted); font-size: 14px; margin: 0;">Brak ostatnio oglądanych produktów</p>';
+                return;
+            }
+
+            container.innerHTML = recentlyViewed.map(item => `
+                <a href="${item.url}" class="recently-viewed-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="recently-viewed-item-info">
+                        <p class="recently-viewed-item-name">${item.name}</p>
+                        <p class="recently-viewed-item-price">${item.price} zł</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+
+        // Update wishlist count
+        function updateWishlistCount() {
+            const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+            document.getElementById('wishlistCount').textContent = wishlistItems.length;
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            const button = document.querySelector('.recently-viewed-btn');
+            if (dropdown && button && !dropdown.contains(event.target) && !button.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+        // MODAL
+        function openModal() {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const mainImg = document.getElementById('mainImage');
+            modal.style.display = 'block';
+            modalImg.src = mainImg.src;
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+
+        // INICJALIZACJA
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateWishlistCount();
+            updateRecentlyViewedDropdown();
+            
+            // Add current product to recently viewed
+            const currentProduct = {
+                id: 'wiedzma-stojaca',
+                name: 'Wiedźma stojąca',
+                price: 25,
+                image: 'images/products/ozdobychoinkowe/wedzmastojaca/1.jpg',
+                url: 'wiedzma-stojaca.html'
+            };
+            addToRecentlyViewed(currentProduct);
+            
+            // Dodaj event listenery do miniaturek
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    const mainImage = document.getElementById('mainImage');
+                    mainImage.src = this.src;
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Dodaj event listener na gĹ‚Ăłwne zdjÄ™cie - powiÄ™kszenie
+            const mainImage = document.getElementById('mainImage');
+            mainImage.addEventListener('click', function() {
+                openModal();
+            });
+        });
+
+        // ROK W STOPCE
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

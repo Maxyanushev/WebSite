@@ -1,0 +1,184 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Lista życzeń – MDart</title>
+    <meta name="description" content="Twoja lista życzeń z produktami MDart. Zapisz ulubione produkty i wróć do nich później.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='64'%3E✦%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <li><a href="blog.html">Blog</a></li>
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions --><!-- <div class="header-actions">...</div> -->
+                </div>
+                <a href="wishlist.html" class="wishlist-icon" aria-label="Lista życzeń" aria-current="page">
+                    ❤️
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="section section-pad">
+            <div class="container">
+                <div class="section-head" data-reveal>
+                    <h1>Twoja lista życzeń</h1>
+                    <p>Produkty, które Cię zainteresowały</p>
+                </div>
+                
+                <div class="wishlist-content" data-reveal>
+                    <div class="wishlist-items" id="wishlist-items">
+                        <!-- Items will be loaded here -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-hand">MDart</span>
+                <p>Unikatowe wyroby z żywicy epoksydowej</p>
+            </div>
+            <nav aria-label="Footer">
+                <ul class="footer-menu">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <li><a href="blog.html">Blog</a></li>
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            <p class="copyright">© <span id="year"></span> MDart. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Cart and Recently Viewed functionality
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+        let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Update wishlist count
+        function updateWishlistCount() {
+            const wishlistCount = document.getElementById('wishlistCount');
+            wishlistCount.textContent = wishlist.length;
+        }
+
+        // Load wishlist items
+        function loadWishlist() {
+            const wishlistItems = document.getElementById('wishlist-items');
+            
+            if (wishlist.length === 0) {
+                wishlistItems.innerHTML = `
+                    <div class="empty-wishlist">
+                        <h3>Twoja lista życzeń jest pusta</h3>
+                        <p>Dodaj produkty, które Cię interesują</p>
+                        <a href="shop.html" class="btn btn-primary">Przejdź do sklepu</a>
+                    </div>
+                `;
+                return;
+            }
+            
+            wishlistItems.innerHTML = wishlist.map((item, index) => `
+                <div class="wishlist-item">
+                    <div class="item-image">
+                        <img src="${item.image}" alt="${item.name}">
+                    </div>
+                    <div class="item-details">
+                        <h3>${item.name}</h3>
+                        <p class="item-description">${item.description}</p>
+                        <div class="item-price">${item.price} zł</div>
+                    </div>
+                    <div class="item-actions">
+                        <button class="btn btn-primary" onclick="addToCartFromWishlist(${index})">
+                            Dodaj do koszyka
+                        </button>
+                        <button class="btn btn-ghost" onclick="removeFromWishlist('${item.id}')">
+                            Usuń z listy
+                        </button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // Add to cart from wishlist
+        function addToCartFromWishlist(index) {
+            const item = wishlist[index];
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            
+            // Check if item already exists in cart
+            const existingItem = cart.find(cartItem => cartItem.id === item.id);
+            if (existingItem) {
+                existingItem.quantity += 1;
+            } else {
+                cart.push({
+                    ...item,
+                    quantity: 1,
+                    color: 'Standardowy',
+                    capacity: 'Standardowa'
+                });
+            }
+            
+            localStorage.setItem('cart', JSON.stringify(cart));
+            showNotification('Dodano do koszyka!');
+            updateCartCount();
+        }
+
+        // Remove from wishlist
+        function removeFromWishlist(itemId) {
+            wishlist = wishlist.filter(item => item.id !== itemId);
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+            loadWishlist();
+            updateWishlistCount();
+            showNotification('Usunięto z listy życzeń');
+        }
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateWishlistCount();
+            loadWishlist();
+        });
+    </script>
+</body>
+</html>
+
+
+
+

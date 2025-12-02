@@ -1,0 +1,518 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDart – Autko z choinką</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .color-selector {
+            margin: 20px 0;
+        }
+        .color-options {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+        .color-option {
+            display: flex;
+            align-items: center;
+            padding: 12px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        .color-option:hover {
+            border-color: var(--brown);
+            transform: translateY(-2px);
+        }
+        .color-option.selected {
+            border-color: var(--brown);
+            background: var(--cream);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .color-option input[type="radio"] {
+            margin-right: 10px;
+            cursor: pointer;
+        }
+        .color-option label {
+            cursor: pointer;
+            font-weight: 500;
+        }
+        .color-swatch {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            margin-left: 10px;
+            border: 2px solid #ddd;
+        }
+        .color-swatch.white {
+            background: linear-gradient(135deg, #ffffff, #f5f5f5);
+        }
+        .color-swatch.gold {
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+        .color-swatch.black-dots {
+            background: linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 100%);
+            position: relative;
+        }
+        .color-swatch.black-dots::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 8px;
+            height: 8px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: -6px -6px 0 -2px white, 6px 6px 0 -2px white;
+        }
+        .color-swatch.blue-gold {
+            background: linear-gradient(135deg, #87CEEB, #4682B4, #FFD700);
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="blog.html">Strefa wiedzy</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- <div class="header-actions">
+                <div class="recently-viewed">
+                    <button class="recently-viewed-btn" onclick="toggleRecentlyViewed()">Ostatnio oglądane</button>
+                    <div class="recently-viewed-dropdown" id="recentlyViewedDropdown">
+                        <div id="recentlyViewedItems"></div>
+                    </div> -->
+                </div>
+                <a href="wishlist.html" class="wishlist-icon" aria-label="Lista życzeń">
+                    ❤️
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-section">
+            <div class="container">
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <a href="ozdoby-choinkowe.html">Ozdoby choinkowe</a>
+                    <span class="separator">›</span>
+                    <span class="current">Autko z choinką</span>
+                </nav>
+
+                <div class="product-page">
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/ozdobychoinkowe/autkozchoinka/1.jpg" alt="Autko z choinką - widok główny" loading="eager" style="cursor:pointer">
+                        </div>
+                        <div class="thumbnail-gallery" id="thumbnailGallery">
+                            <img src="images/products/ozdobychoinkowe/autkozchoinka/1.jpg" class="thumbnail active" style="cursor:pointer">
+                            <img src="images/products/ozdobychoinkowe/autkozchoinka/2.jpg" class="thumbnail" style="cursor:pointer">
+                        </div>
+                    </div>
+
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Autko z choinką</h1>
+                        <div class="product-price-large" id="productPrice">25 zł</div>
+                        
+                        <div class="product-description">
+                            <p class="lead">To urocze autko wiozące choinkę to coś więcej niż ozdoba. To symbol podróży do rodzinnego domu na Święta, ciepłych wspomnień i wspólnie spędzonego czasu. Wykonane z dbałością o każdy szczegół, łączy nostalgiczny klimat z magią Świąt.</p>
+                            <p>Każde autko powstaje ręcznie, z miłością do detali i tradycji. Idealne dla tych, którzy kochają vintage i klimat rodzinnych Świąt Bożego Narodzenia.</p>
+                            
+                            <div class="color-selector">
+                                <h3>Wybierz wariant:</h3>
+                                <div class="color-options">
+                                    <div class="color-option selected" id="opt-white" onclick="changeVariant('white')">
+                                        <input type="radio" name="variant" value="white" checked>
+                                        <label>Białe</label>
+                                        <div class="color-swatch white"></div>
+                                    </div>
+                                    <div class="color-option" id="opt-gold" onclick="changeVariant('gold')">
+                                        <input type="radio" name="variant" value="gold">
+                                        <label>Złote</label>
+                                        <div class="color-swatch gold"></div>
+                                    </div>
+                                    <div class="color-option" id="opt-blackdots" onclick="changeVariant('blackdots')">
+                                        <input type="radio" name="variant" value="blackdots">
+                                        <label>Czarno-białe</label>
+                                        <div class="color-swatch black-dots"></div>
+                                    </div>
+                                    <div class="color-option" id="opt-bluegold" onclick="changeVariant('bluegold')">
+                                        <input type="radio" name="variant" value="bluegold">
+                                        <label>Błękitno-złote</label>
+                                        <div class="color-swatch blue-gold"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed">
+                                <div class="spec-row">
+                                    <span class="spec-label">Wysokość:</span>
+                                    <span class="spec-value">~7-8 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Materiał:</span>
+                                    <span class="spec-value">Żywica epoksydowa</span>
+                                </div>
+                            </div>
+
+                            <h3>Co sprawia, że jest wyjątkowe?</h3>
+                            <ul class="product-features">
+                                <li>Ręcznie tworzony z miłością do detali</li>
+                                <li>Unikalna świąteczna kompozycja – autko z choinką</li>
+                                <li>Przejrzysta żywica najwyższej jakości</li>
+                                <li>Pięknie prezentuje się na choince</li>
+                                <li>Każda ozdoba jest niepowtarzalna – nie ma dwóch identycznych</li>
+                                <li>Trwała forma zachowuje swój blask na lata</li>
+                                <li>Dostępny w różnych kolorystycznych wariantach</li>
+                                <li>Nadaje się jako wartościowy prezent dla miłośników vintage</li>
+                            </ul>
+                            
+                            <div class="info-box" style="background: var(--cream); padding: 15px; border-radius: 8px; margin-top: 20px;">
+                                <p style="margin: 0;"><strong>Niepowtarzalny charakter:</strong> Każda ozdoba jest ręcznie wykonana z pasją, dlatego może delikatnie różnić się od prezentowanej. Ta naturalna różnorodność sprawia, że każdy egzemplarz ma własny charakter i niepowtarzalny urok.</p>
+                            </div>
+
+                            <p style="margin-top: 20px; font-style: italic; color: var(--brown);">Niech to autko przypomina o podróżach do rodzinnego domu, ciepłych Świętach i beztroskiej radości wspólnie spędzonych chwil. To ozdoba, która wnosi nostalgię i ciepło do każdego domu.</p>
+                        </div>
+
+                        <!-- Add to Cart -->
+                        <!-- <div class="add-to-cart-section">
+                            <div class="quantity-selector">
+                                <label for="quantity">Ilość:</label>
+                                <div class="quantity-controls">
+                                    <button type="button" onclick="decreaseQuantity()">-</button>
+                                    <input type="number" id="quantity" value="1" min="1" max="10">
+                                    <button type="button" onclick="increaseQuantity()">+</button>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-large" onclick="addToCart()">
+                                <span id="addToCartText">Dodaj do koszyka - 25 zł</span>
+                            </button>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <span class="image-modal-close" onclick="closeModal()">&times;</span>
+        <span class="image-modal-nav image-modal-prev" onclick="event.stopPropagation(); prevImage()">‹</span>
+        <span class="image-modal-nav image-modal-next" onclick="event.stopPropagation(); nextImage()">›</span>
+        <img class="image-modal-content" id="modalImage" alt="Powiększone zdjęcie">
+    </div>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-hand">MDart</span>
+                <p>Unikatowe wyroby z żywicy epoksydowej</p>
+            </div>
+            <nav aria-label="Footer">
+                <ul class="footer-menu">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            <div class="footer-contact">
+                <p style="margin-bottom: 10px; opacity: 0.9;">Kontakt:</p>
+                <p style="margin: 5px 0;"><a href="mailto:mdartzywica@gmail.com" style="color: inherit; text-decoration: none;">📧 mdartzywica@gmail.com</a></p>
+                <p style="margin: 5px 0;"><a href="tel:+48570837430" style="color: inherit; text-decoration: none;">📞 +48 570 837 430</a></p>
+            </div>
+            <p class="copyright">© <span id="year"></span> MDart. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // KONFIGURACJA WARIANTÓW
+        const variants = {
+            white: {
+                name: 'Białe',
+                price: 25,
+                images: [
+                    'images/products/ozdobychoinkowe/autkozchoinka/1.jpg',
+                    'images/products/ozdobychoinkowe/autkozchoinka/2.jpg'
+                ]
+            },
+            gold: {
+                name: 'Złote',
+                price: 25,
+                images: [
+                    'images/products/ozdobychoinkowe/autkozchoinka/3.jpg',
+                    'images/products/ozdobychoinkowe/autkozchoinka/4.jpg',
+                    'images/products/ozdobychoinkowe/autkozchoinka/5.jpg'
+                ]
+            },
+            blackdots: {
+                name: 'Czarno-białe',
+                price: 25,
+                images: [
+                    'images/products/ozdobychoinkowe/autkozchoinka/6.jpg',
+                    'images/products/ozdobychoinkowe/autkozchoinka/7.jpg',
+                    'images/products/ozdobychoinkowe/autkozchoinka/8.jpg'
+                ]
+            },
+            bluegold: {
+                name: 'Błękitno-złote',
+                price: 25,
+                images: [
+                    'images/products/ozdobychoinkowe/autkozchoinka/9.jpg',
+                    'images/products/ozdobychoinkowe/autkozchoinka/10.jpg',
+                    'images/products/ozdobychoinkowe/autkozchoinka/11.jpg',
+                    'images/products/ozdobychoinkowe/autkozchoinka/12.jpg'
+                ]
+            }
+        };
+
+        let currentVariant = 'white';
+        let modalImages = variants.white.images;
+        let currentModalIndex = 0;
+
+        // ZMIANA WARIANTU
+        function changeVariant(variantName) {
+            currentVariant = variantName;
+            const variant = variants[variantName];
+            const mainImage = document.getElementById('mainImage');
+            const gallery = document.getElementById('thumbnailGallery');
+            const priceEl = document.getElementById('productPrice');
+            const cartText = document.getElementById('addToCartText');
+            
+            // Zmień cenę
+            priceEl.textContent = variant.price + ' zł';
+            cartText.textContent = 'Dodaj do koszyka - ' + variant.price + ' zł';
+            
+            // Zmień główne zdjęcie
+            mainImage.src = variant.images[0];
+            
+            // Zaktualizuj obrazy dla modala
+            modalImages = variant.images;
+            
+            // Zmień miniaturki
+            gallery.innerHTML = '';
+            variant.images.forEach((img, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = img;
+                thumb.className = 'thumbnail' + (index === 0 ? ' active' : '');
+                thumb.style.cursor = 'pointer';
+                thumb.onclick = function() {
+                    mainImage.src = img;
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                };
+                gallery.appendChild(thumb);
+            });
+            
+            // Zaznacz wybrany wariant
+            document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+            document.getElementById('opt-' + variantName).classList.add('selected');
+        }
+
+        // MODAL IMAGE
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            currentModalIndex = modalImages.indexOf(imageSrc);
+            if (currentModalIndex === -1) currentModalIndex = 0;
+
+            modal.style.display = 'block';
+            modalImg.src = modalImages[currentModalIndex];
+        }
+
+        function prevImage() {
+            currentModalIndex = (currentModalIndex - 1 + modalImages.length) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        function nextImage() {
+            currentModalIndex = (currentModalIndex + 1) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // ILOŚĆ
+        function increaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) < 10) {
+                input.value = parseInt(input.value) + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // DODAJ DO KOSZYKA
+        function addToCart() {
+            const quantity = parseInt(document.getElementById('quantity').value);
+            const variant = variants[currentVariant];
+            const product = {
+                id: 'autko-z-choinka-' + currentVariant,
+                name: 'Autko z choinką - ' + variant.name,
+                price: variant.price,
+                quantity: quantity,
+                image: variant.images[0],
+                url: 'autko-z-choinka.html',
+                variant: currentVariant
+            };
+
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const existingItem = cartItems.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += quantity;
+            } else {
+                cartItems.push(product);
+            }
+            
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            
+            // Update cart count
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+            
+            // Add to recently viewed
+            addToRecentlyViewed(product);
+            
+            alert('Produkt dodany do koszyka! 🎉');
+        }
+
+        // OSTATNIO OGLĄDANE
+        function addToRecentlyViewed(product) {
+            let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+            recentlyViewed = recentlyViewed.filter(item => item.id !== product.id);
+            recentlyViewed.unshift(product);
+            recentlyViewed = recentlyViewed.slice(0, 5);
+            localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+        }
+
+        // TOGGLE RECENTLY VIEWED
+        function toggleRecentlyViewed() {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Update recently viewed dropdown
+        function updateRecentlyViewedDropdown() {
+            const container = document.getElementById('recentlyViewedItems');
+            const recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+            
+            if (recentlyViewed.length === 0) {
+                container.innerHTML = '<p style="color: var(--muted); font-size: 14px; margin: 0;">Brak ostatnio oglądanych produktów</p>';
+                return;
+            }
+
+            container.innerHTML = recentlyViewed.map(item => `
+                <a href="${item.url}" class="recently-viewed-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="recently-viewed-item-info">
+                        <p class="recently-viewed-item-name">${item.name}</p>
+                        <p class="recently-viewed-item-price">${item.price} zł</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Update cart count
+        function updateCartCount() {
+            const cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+        }
+
+        // Update wishlist count
+        function updateWishlistCount() {
+            const wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+            document.getElementById('wishlistCount').textContent = wishlistItems.length;
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            const button = document.querySelector('.recently-viewed-btn');
+            if (dropdown && button && !dropdown.contains(event.target) && !button.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // INICJALIZACJA
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateWishlistCount();
+            updateRecentlyViewedDropdown();
+            
+            // Add current product to recently viewed
+            const currentProduct = {
+                id: 'autko-z-choinka',
+                name: 'Autko z choinką',
+                price: 25,
+                image: 'images/products/ozdobychoinkowe/autkozchoinka/1.jpg',
+                url: 'autko-z-choinka.html'
+            };
+            addToRecentlyViewed(currentProduct);
+            
+            // Dodaj event listenery do zdjęć dla modala
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            mainImage.addEventListener('click', function() {
+                openModal(this.src);
+            });
+            
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    mainImage.src = this.src;
+                    document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                    // Po zmianie głównego zdjęcia, następny klik na mainImage otworzy modal
+                });
+            });
+        });
+
+        // ROK W STOPCE
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+

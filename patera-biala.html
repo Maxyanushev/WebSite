@@ -1,0 +1,399 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Czarne morze - MDart</title>
+    <meta name="description" content="Czarne morze - dramatyczna patera z głębokim czarnym tłem i białymi wzorami przypominającymi fale morskie. Unikatowe wyroby z żywicy epoksydowej.">
+    <meta name="keywords" content="czarne morze, patera, żywica epoksydowa, czarna patera, białe wzory, fale morskie, MDart">
+    <meta name="robots" content="index, follow">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext x='50' y='62' text-anchor='middle' font-size='64'%3E✦%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="blog.html">Strefa wiedzy</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions -->
+            <!-- <div class="header-actions">
+                <div class="recently-viewed">
+                    <button class="recently-viewed-btn" onclick="toggleRecentlyViewed()">Ostatnio oglądane</button>
+                    <div class="recently-viewed-dropdown" id="recentlyViewedDropdown">
+                        <div id="recentlyViewedItems">
+                        </div>
+                    </div>
+                </div>
+                <a href="wishlist.html" class="wishlist-icon" aria-label="Lista życzeń">
+                    ❤️
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div> -->
+        </div>
+    </header>
+
+    <!-- Product Page -->
+    <main class="main">
+        <section class="product-section">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <a href="patery.html">Patery</a>
+                    <span class="separator">›</span>
+                    <span class="current">Czarne morze</span>
+                </nav>
+
+                <div class="product-page">
+                    <!-- Product Gallery -->
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/pateraczarna/product97.jpeg?v=1" alt="Czarne morze - widok główny" loading="eager">
+                        </div>
+                        <div class="thumbnail-gallery">
+                            <img src="images/products/pateraczarna/product97.jpeg?v=1" alt="Czarne morze - widok 1" class="thumbnail active" onclick="changeImage(this, 'images/products/pateraczarna/product97.jpeg?v=1')">
+                            <img src="images/products/pateraczarna/product98.jpeg?v=1" alt="Czarne morze - widok 2" class="thumbnail" onclick="changeImage(this, 'images/products/pateraczarna/product98.jpeg?v=1')">
+                            <img src="images/products/pateraczarna/product99.jpeg?v=1" alt="Czarne morze - widok 3" class="thumbnail" onclick="changeImage(this, 'images/products/pateraczarna/product99.jpeg?v=1')">
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Czarne morze</h1>
+                        <div class="product-price-large">289 zł</div>
+                        
+                        <div class="product-description">
+                            <p class="lead">Czarne morze to dramatyczna patera z głębokim czarnym tłem i białymi wzorami przypominającymi fale morskie. Ten kontrastowy design dodaje elegancji i charakteru każdemu stołowi.</p>
+                            
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed">
+                                <div class="spec-row">
+                                    <span class="spec-label">Wysokość całkowita:</span>
+                                    <span class="spec-value">25 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Średnica dolnego talerza:</span>
+                                    <span class="spec-value">34 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Średnica górnego talerza:</span>
+                                    <span class="spec-value">28 cm</span>
+                                </div>
+                            </div>
+
+                            <h3>Materiały i wykonanie:</h3>
+                            <ul class="product-features">
+                                <li>Ręcznie wykonana z wysokiej jakości żywicy epoksydowej</li>
+                                <li>Dramatyczne czarne tło z białymi wzorami morskimi</li>
+                                <li>Każda patera jest jedyna w swoim rodzaju</li>
+                                <li>Powierzchnia odporna na wilgoć i bezpieczna w kontakcie z żywnością</li>
+                            </ul>
+
+                            <h3>Zastosowanie:</h3>
+                            <ul class="product-features">
+                                <li>Idealna do serwowania deserów, owoców czy drobnych przekąsek</li>
+                                <li>Sprawdzi się także jako dekoracyjny element stołu</li>
+                                <li>Dodaje elegancji i charakteru każdemu posiłkowi</li>
+                            </ul>
+                        </div>
+
+                        <!-- Add to Cart -->
+                        <!-- <div class="add-to-cart-section">
+                            <div class="quantity-selector">
+                                <label for="quantity">Ilość:</label>
+                                <div class="quantity-controls">
+                                    <button type="button" onclick="decreaseQuantity()">-</button>
+                                    <input type="number" id="quantity" value="1" min="1" max="10">
+                                    <button type="button" onclick="increaseQuantity()">+</button>
+                                </div>
+                            </div>
+                            
+                            <button class="btn btn-primary btn-large" onclick="addToCart()">
+                                Dodaj do koszyka - 289 zł
+                            </button>
+                            
+                            <div class="product-actions">
+                                <button class="btn btn-ghost" onclick="addToWishlist()">
+                                    ♥ Dodaj do ulubionych
+                                </button>
+                            </div>
+                        </div> -->
+
+                        <!-- Additional Info -->
+                        <div class="product-additional-info">
+                            <div class="info-item">
+                                <h4>🚚 Dostawa</h4>
+                                <p>Darmowa dostawa przy zamówieniach powyżej 200 zł</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>🔒 Bezpieczeństwo</h4>
+                                <p>Bezpieczne płatności i gwarancja jakości</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>📞 Kontakt</h4>
+                                <p>Masz pytania? <a href="kontakt.html">Skontaktuj się z nami</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <section class="related-products">
+                    <h2>Podobne produkty</h2>
+                    <div class="products-grid">
+                        <a href="patera-niebieska.html" class="related-product">
+                            <img src="images/products/pateraniebieska/product78.jpeg" alt="Patera niebieska">
+                            <h4>Patera niebieska</h4>
+                            <span class="price">289 zł</span>
+                        </a>
+                        <a href="patera-zlota.html" class="related-product">
+                            <img src="images/products/paterazlota/paterazlota.jpg" alt="Patera złota">
+                            <h4>Patera złota</h4>
+                            <span class="price">289 zł</span>
+                        </a>
+                        <a href="patera-rozowa.html" class="related-product">
+                            <img src="images/products/paterapink/product59.jpeg" alt="Patera różowa">
+                            <h4>Patera różowa</h4>
+                            <span class="price">289 zł</span>
+                        </a>
+                        <a href="patera-fioletowa.html" class="related-product">
+                            <img src="images/products/patera1/product74.jpeg" alt="Patera fioletowa">
+                            <h4>Patera fioletowa</h4>
+                            <span class="price">289 zł</span>
+                        </a>
+                    </div>
+                    <div class="text-center" style="margin-top: 30px;">
+                        <a href="patery.html" class="btn btn-ghost">Zobacz wszystkie patery</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-inner">
+            <div class="footer-brand">
+                <span class="logo-hand">MDart</span>
+                <p>Unikatowe wyroby z żywicy epoksydowej</p>
+            </div>
+            <nav aria-label="Footer">
+                <ul class="footer-menu">
+                    <li><a href="index.html">Start</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            <p class="copyright">© <span id="year"></span> MDart. Wszelkie prawa zastrzeżone.</p>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <span class="image-modal-close" onclick="closeModal()">&times;</span>
+        <span class="image-modal-nav image-modal-prev" onclick="event.stopPropagation(); prevImage()">‹</span>
+        <span class="image-modal-nav image-modal-next" onclick="event.stopPropagation(); nextImage()">›</span>
+        <img class="image-modal-content" id="modalImage" alt="Powiększone zdjęcie">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Cart and Recently Viewed functionality
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Add to recently viewed
+        function addToRecentlyViewed(product) {
+            recentlyViewed = recentlyViewed.filter(item => item.id !== product.id);
+            recentlyViewed.unshift(product);
+            recentlyViewed = recentlyViewed.slice(0, 5);
+            localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+            updateRecentlyViewedDropdown();
+        }
+
+        // Update recently viewed dropdown
+        function updateRecentlyViewedDropdown() {
+            const container = document.getElementById('recentlyViewedItems');
+            if (recentlyViewed.length === 0) {
+                container.innerHTML = '<p style="color: var(--muted); font-size: 14px; margin: 0;">Brak ostatnio oglądanych produktów</p>';
+                return;
+            }
+
+            container.innerHTML = recentlyViewed.map(item => `
+                <a href="${item.url}" class="recently-viewed-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="recently-viewed-item-info">
+                        <p class="recently-viewed-item-name">${item.name}</p>
+                        <p class="recently-viewed-item-price">${item.price} zł</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Toggle recently viewed dropdown
+        function toggleRecentlyViewed() {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            const button = document.querySelector('.recently-viewed-btn');
+            if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateRecentlyViewedDropdown();
+            
+            // Add current page to recently viewed
+            addToRecentlyViewed({
+                id: 'czarne-morze',
+                name: 'Czarne morze',
+                price: '289 zł',
+                image: 'images/products/paterabiala/paterabiala1.jpg',
+                url: 'patera-biala.html'
+            });
+        });
+    </script>
+    <script>
+        // Product image gallery functionality
+        function changeImage(element, imageSrc) {
+            document.getElementById('mainImage').src = imageSrc;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Tablica zdjęć dla modala
+        const modalImages = [
+            'images/products/pateraczarna/product97.jpeg?v=1',
+            'images/products/pateraczarna/product98.jpeg?v=1',
+            'images/products/pateraczarna/product99.jpeg?v=1'
+        ];
+        let currentModalIndex = 0;
+
+        // Otwórz modal z powiększonym zdjęciem
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Znajdź indeks aktualnego zdjęcia
+            currentModalIndex = modalImages.indexOf(imageSrc);
+            if (currentModalIndex === -1) currentModalIndex = 0;
+            
+            modal.style.display = 'block';
+            modalImg.src = modalImages[currentModalIndex];
+        }
+
+        // Poprzednie zdjęcie
+        function prevImage() {
+            currentModalIndex = (currentModalIndex - 1 + modalImages.length) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        // Następne zdjęcie
+        function nextImage() {
+            currentModalIndex = (currentModalIndex + 1) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        // Zamknij modal
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Dodaj obsługę kliknięcia na główne zdjęcie i miniaturki
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.style.cursor = 'pointer';
+            mainImage.addEventListener('click', function() {
+                openModal(this.src);
+            });
+            
+            // Dodaj kursor pointer do miniaturek
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.style.cursor = 'pointer';
+            });
+        });
+
+        // Quantity controls
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+
+        // Add to cart functionality
+        function addToCart() {
+            const quantity = document.getElementById('quantity').value;
+            const productName = 'Czarne morze';
+            const price = 289;
+            
+            // Mock add to cart - in real implementation, this would send data to server
+            alert(`Dodano do koszyka: ${productName} (${quantity} szt.) - ${price * quantity} zł`);
+            
+            // You could also redirect to cart page
+            // window.location.href = 'cart.html';
+        }
+
+        // Add to wishlist functionality
+        function addToWishlist() {
+            alert('Dodano do ulubionych!');
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+

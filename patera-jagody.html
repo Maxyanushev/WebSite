@@ -1,0 +1,449 @@
+﻿<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patera z jagodami - MDart</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="blog.html">Strefa wiedzy</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions -->
+            <!-- <div class="header-actions">
+                <div class="recently-viewed">
+                    <button class="recently-viewed-btn" onclick="toggleRecentlyViewed()">Ostatnio oglądane</button>
+                    <div class="recently-viewed-dropdown" id="recentlyViewedDropdown">
+                        <div id="recentlyViewedItems">
+                        </div>
+                    </div>
+                </div>
+                <a href="wishlist.html" class="wishlist-icon" aria-label="Lista życzeń">
+                    ❤️
+                    <span class="wishlist-count" id="wishlistCount">0</span>
+                </a>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div> -->
+        </div>
+    </header>
+
+    <!-- Product Page -->
+    <main class="main">
+        <section class="product-section">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <a href="patery.html">Patery</a>
+                    <span class="separator">›</span>
+                    <span class="current">Patera z jagodami</span>
+                </nav>
+
+                <div class="product-page">
+                    <!-- Product Gallery -->
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/paterajagody2/paterajagody.jpg?v=1" alt="Patera z jagodami - widok główny" loading="eager">
+                        </div>
+                        <div class="thumbnail-gallery" id="thumbnailGallery">
+                            <!-- Thumbnails will be populated by JavaScript based on selected variant -->
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Patera z jagodami</h1>
+                        <div class="product-price-large" id="productPrice">359 zł</div>
+                        
+                        <!-- Variant Selection - Compact -->
+                        <div class="variant-selection-compact">
+                            <label>Wariant:</label>
+                            <div class="variant-options-compact">
+                                <button class="variant-btn-compact active" data-variant="2-tier" onclick="selectVariant('2-tier')">
+                                    Dwupiętrowa - 359 zł
+                                </button>
+                                <button class="variant-btn-compact" data-variant="3-tier" onclick="selectVariant('3-tier')">
+                                    Trzypiętrowa - 389 zł
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="product-description">
+                            <p class="lead">Piękna patera z jagodami inspirowana letnimi owocami. Delikatne odcienie fioletu i różu tworzą niepowtarzalny efekt, przypominający dojrzałe jagody w letnim słońcu.</p>
+                            
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed" id="productSpecs">
+                                <!-- Specs will be updated by JavaScript based on selected variant -->
+                            </div>
+
+                            <h3>Materiały i wykonanie:</h3>
+                            <ul class="product-features">
+                                <li>Ręcznie wykonana z wysokiej jakości żywicy epoksydowej</li>
+                                <li>Wyjątkowe jagodowe przejścia kolorów oraz zdobienia</li>
+                                <li>Każda patera jest jedyna w swoim rodzaju</li>
+                                <li>Powierzchnia odporna na wilgoć i bezpieczna w kontakcie z żywnością</li>
+                            </ul>
+
+                            <h3>Zastosowanie:</h3>
+                            <ul class="product-features">
+                                <li>Idealna do serwowania deserów, owoców czy drobnych przekąsek</li>
+                                <li>Sprawdzi się także jako dekoracyjny element stołu</li>
+                                <li>Dodaje elegancji i charakteru każdemu posiłkowi</li>
+                            </ul>
+                        </div>
+
+                        <!-- Add to Cart --><!-- <div class="add-to-cart-section">...</div> --></div>
+                            
+                            <button class="btn btn-primary btn-large" onclick="addToCart()" id="addToCartBtn">
+                                Dodaj do koszyka - 359 zł
+                            </button>
+                            
+                            <div class="product-actions">
+                                <button class="btn btn-ghost" onclick="addToWishlist()">
+                                    ♥ Dodaj do ulubionych
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Additional Info -->
+                        <div class="product-additional-info">
+                            <div class="info-item">
+                                <h4>🚚 Dostawa</h4>
+                                <p>Darmowa dostawa przy zamówieniach powyżej 200 zł</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>🔒 Bezpieczeństwo</h4>
+                                <p>Bezpieczne płatności i gwarancja jakości</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>📞 Kontakt</h4>
+                                <p>Masz pytania? <a href="kontakt.html">Skontaktuj się z nami</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <section class="related-products">
+                    <h2>Podobne produkty</h2>
+                    <div class="products-grid">
+                        <a href="patera-lodowa.html" class="related-product">
+                            <img src="images/products/pateralodowa/product81.jpeg?v=1" alt="Patera lodowa">
+                            <h4>Patera lodowa</h4>
+                            <span class="price">359 zł</span>
+                        </a>
+                        <a href="patera-fioletowa.html" class="related-product">
+                            <img src="images/products/patera1/product74.jpeg?v=1" alt="Patera fioletowa">
+                            <h4>Patera fioletowa trzypiętrowa</h4>
+                            <span class="price">369 zł</span>
+                        </a>
+                    </div>
+                    <div class="text-center" style="margin-top: 30px;">
+                        <a href="patery.html" class="btn btn-ghost">Zobacz wszystkie patery</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="handwritten">MDart</h3>
+                    <p>Tworzymy unikatowe wyroby z żywicy epoksydowej, które dodają charakteru każdemu wnętrzu.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>📧 kontakt@mdart.pl</p>
+                    <p>📱 +48 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Śledź nas</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">📷 Instagram</a>
+                        <a href="#" aria-label="Facebook">📘 Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MDart. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <span class="image-modal-close" onclick="closeModal()">&times;</span>
+        <span class="image-modal-nav image-modal-prev" onclick="event.stopPropagation(); prevImage()">‹</span>
+        <span class="image-modal-nav image-modal-next" onclick="event.stopPropagation(); nextImage()">›</span>
+        <img class="image-modal-content" id="modalImage" alt="Powiększone zdjęcie">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Product variants data
+        const variants = {
+            '2-tier': {
+                name: 'Dwupiętrowa',
+                price: 359,
+                images: [
+                    'images/products/paterajagody2/paterajagody.jpg?v=1',
+                    'images/products/paterajagody2/paterajagody2.jpg?v=1',
+                    'images/products/paterajagody2/paterajagody3.jpg?v=1',
+                    'images/products/paterajagody2/paterajagody5.jpg?v=1'
+                ],
+                specs: [
+                    { label: 'Wysokość całkowita:', value: '25 cm' },
+                    { label: 'Średnica dolnego talerza:', value: '30 cm' },
+                    { label: 'Średnica górnego talerza:', value: '25 cm' }
+                ]
+            },
+            '3-tier': {
+                name: 'Trzypiętrowa',
+                price: 389,
+                images: [
+                    'images/products/paterajagody3/paterazjagodami3p.jpg?v=1',
+                    'images/products/paterajagody3/paterazjod3.jpg?v=1',
+                    'images/products/paterajagody3/4.jpg?v=1',
+                    'images/products/paterajagody3/5.jpg?v=1'
+                ],
+                specs: [
+                    { label: 'Wysokość całkowita:', value: '37 cm' },
+                    { label: 'Średnica dolnego talerza:', value: '32 cm' },
+                    { label: 'Średnica środkowego talerza:', value: '26 cm' },
+                    { label: 'Średnica górnego talerza:', value: '20 cm' }
+                ]
+            }
+        };
+
+        let currentVariant = '2-tier';
+        let currentModalIndex = 0;
+
+        // Initialize page
+        document.addEventListener('DOMContentLoaded', function() {
+            updateProductDisplay();
+            setupThumbnails();
+            setupMainImageClick();
+        });
+
+        // Select variant
+        function selectVariant(variant) {
+            currentVariant = variant;
+            
+            // Update active button
+            document.querySelectorAll('.variant-btn-compact').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`[data-variant="${variant}"]`).classList.add('active');
+            
+            updateProductDisplay();
+            setupThumbnails();
+        }
+
+        // Update product display
+        function updateProductDisplay() {
+            const variant = variants[currentVariant];
+            
+            // Update price
+            document.getElementById('productPrice').textContent = variant.price + ' zł';
+            document.getElementById('addToCartBtn').textContent = `Dodaj do koszyka - ${variant.price} zł`;
+            
+            // Update specs
+            const specsContainer = document.getElementById('productSpecs');
+            specsContainer.innerHTML = '';
+            variant.specs.forEach(spec => {
+                const specRow = document.createElement('div');
+                specRow.className = 'spec-row';
+                specRow.innerHTML = `
+                    <span class="spec-label">${spec.label}</span>
+                    <span class="spec-value">${spec.value}</span>
+                `;
+                specsContainer.appendChild(specRow);
+            });
+            
+            // Update main image
+            document.getElementById('mainImage').src = variant.images[0];
+        }
+
+        // Setup thumbnails
+        function setupThumbnails() {
+            const thumbnailGallery = document.getElementById('thumbnailGallery');
+            const variant = variants[currentVariant];
+            
+            thumbnailGallery.innerHTML = '';
+            variant.images.forEach((imageSrc, index) => {
+                const thumbnail = document.createElement('img');
+                thumbnail.src = imageSrc;
+                thumbnail.alt = `Patera z jagodami - widok ${index + 1}`;
+                thumbnail.className = index === 0 ? 'thumbnail active' : 'thumbnail';
+                thumbnail.onclick = () => changeImage(imageSrc);
+                thumbnailGallery.appendChild(thumbnail);
+            });
+        }
+
+        // Setup main image click
+        function setupMainImageClick() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.addEventListener('click', function() {
+                openModal(this.src);
+            });
+        }
+
+        // Product image gallery functionality
+        function changeImage(imageSrc) {
+            document.getElementById('mainImage').src = imageSrc;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            event.target.classList.add('active');
+        }
+
+        // Otwórz modal z powiększonym zdjęciem
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            const variant = variants[currentVariant];
+            
+            // Znajdź indeks aktualnego zdjęcia
+            currentModalIndex = variant.images.indexOf(imageSrc);
+            if (currentModalIndex === -1) currentModalIndex = 0;
+            
+            modal.style.display = 'block';
+            modalImg.src = variant.images[currentModalIndex];
+        }
+
+        // Poprzednie zdjęcie
+        function prevImage() {
+            const variant = variants[currentVariant];
+            currentModalIndex = (currentModalIndex - 1 + variant.images.length) % variant.images.length;
+            document.getElementById('modalImage').src = variant.images[currentModalIndex];
+        }
+
+        // Następne zdjęcie
+        function nextImage() {
+            const variant = variants[currentVariant];
+            currentModalIndex = (currentModalIndex + 1) % variant.images.length;
+            document.getElementById('modalImage').src = variant.images[currentModalIndex];
+        }
+
+        // Zamknij modal
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Quantity controls
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+
+        // Add to cart functionality
+        function addToCart() {
+            const quantity = document.getElementById('quantity').value;
+            const variant = variants[currentVariant];
+            const productName = `Patera z jagodami ${variant.name}`;
+            const price = variant.price;
+            
+            // Mock add to cart - in real implementation, this would send data to server
+            alert(`Dodano do koszyka: ${productName} (${quantity} szt.) - ${price * quantity} zł`);
+            
+            // You could also redirect to cart page
+            // window.location.href = 'cart.html';
+        }
+
+        // Add to wishlist functionality
+        function addToWishlist() {
+            alert('Dodano do ulubionych!');
+        }
+    </script>
+
+    <style>
+        /* Compact Variant Selection Styles */
+        .variant-selection-compact {
+            margin: 15px 0;
+            padding: 15px;
+            background: var(--beige);
+            border-radius: 12px;
+        }
+
+        .variant-selection-compact label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--brown-dark);
+            font-size: 14px;
+        }
+
+        .variant-options-compact {
+            display: flex;
+            gap: 10px;
+        }
+
+        .variant-btn-compact {
+            flex: 1;
+            padding: 8px 12px;
+            background: var(--white);
+            border: 1px solid var(--beige);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .variant-btn-compact:hover {
+            border-color: var(--brown);
+            transform: translateY(-1px);
+        }
+
+        .variant-btn-compact.active {
+            border-color: var(--brown);
+            background: var(--brown);
+            color: var(--white);
+        }
+
+        @media (max-width: 520px) {
+            .variant-options-compact {
+                flex-direction: column;
+            }
+        }
+    </style>
+</body>
+</html>

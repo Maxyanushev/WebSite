@@ -1,0 +1,306 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDart – Kieliszki klasyczne</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-section">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <a href="kieliszki.html">Kieliszki do wina</a>
+                    <span class="separator">›</span>
+                    <span class="current">Kieliszki klasyczne</span>
+                </nav>
+
+                <div class="product-page">
+                    <!-- Product Gallery -->
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/lampki/lampki.jpeg?v=1" alt="Kieliszki klasyczne - widok główny" loading="eager">
+                        </div>
+                        <div class="thumbnail-gallery">
+                            <img src="images/products/lampki/lampki.jpeg?v=1" alt="Kieliszki klasyczne - widok 1" class="thumbnail active" onclick="changeImage(this, 'images/products/lampki/lampki.jpeg?v=1')">
+                            <img src="images/products/lampki/lampki2.jpeg?v=1" alt="Kieliszki klasyczne - widok 2" class="thumbnail" onclick="changeImage(this, 'images/products/lampki/lampki2.jpeg?v=1')">
+                            <img src="images/products/lampki/lampki4.jpeg?v=1" alt="Kieliszki klasyczne - widok 3" class="thumbnail" onclick="changeImage(this, 'images/products/lampki/lampki4.jpeg?v=1')">
+                            <img src="images/products/lampki/lampki5.jpeg?v=1" alt="Kieliszki klasyczne - widok 4" class="thumbnail" onclick="changeImage(this, 'images/products/lampki/lampki5.jpeg?v=1')">
+                            <img src="images/products/lampki/lampkitaca.jpeg?v=1" alt="Kieliszki klasyczne - widok 5" class="thumbnail" onclick="changeImage(this, 'images/products/lampki/lampkitaca.jpeg?v=1')">
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Kieliszki klasyczne</h1>
+                        <div class="product-price-large">179 zł</div>
+                        
+                        <div class="product-description">
+                            <p class="lead">Eleganckie kieliszki klasyczne wykonane z wysokiej jakości żywicy epoksydowej. Klasyczny design z eleganckimi akcentami tworzy niepowtarzalny zestaw kieliszków, który zachwyci każdego miłośnika tradycyjnego stylu i elegancji.</p>
+                            
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed">
+                                <div class="spec-row">
+                                    <span class="spec-label">Wysokość kieliszka:</span>
+                                    <span class="spec-value">16 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Średnica podstawy:</span>
+                                    <span class="spec-value">6.5 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Pojemność:</span>
+                                    <span class="spec-value">220 ml</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Materiał:</span>
+                                    <span class="spec-value">Żywica epoksydowa klasyczna</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Waga zestawu:</span>
+                                    <span class="spec-value">~110g</span>
+                                </div>
+                            </div>
+
+                            <h3>Klasyczne cechy:</h3>
+                            <ul class="product-features">
+                                <li>Klasyczny design z eleganckimi akcentami</li>
+                                <li>Każdy kieliszek jest ręcznie wykonany z dbałością o szczegóły</li>
+                                <li>Wysokiej jakości żywica epoksydowa</li>
+                                <li>Gładka powierzchnia idealna do picia wina</li>
+                                <li>Odporna na zarysowania i wilgoć</li>
+                                <li>Bezpieczna w kontakcie z żywnością</li>
+                                <li>Tradycyjny design - każdy zestaw jest niepowtarzalny</li>
+                            </ul>
+
+                            <h3>Idealne dla:</h3>
+                            <p>Miłośników klasycznego stylu, osób ceniących tradycyjną elegancję, kolekcjonerów unikatowych przedmiotów. Sprawdzi się jako elegancki prezent na urodziny, święta czy inne specjalne okazje. Klasyczny design dodaje elegancji i charakteru każdemu spotkaniu przy winie.</p>
+                        </div>
+
+                        <!-- Add to Cart --><!-- <div class="add-to-cart-section">...</div> -->
+
+                        <!-- Additional Info -->
+                        <div class="product-additional-info">
+                            <div class="info-item">
+                                <h4>🚚 Dostawa</h4>
+                                <p>Darmowa dostawa przy zamówieniach powyżej 200 zł</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>🔒 Bezpieczeństwo</h4>
+                                <p>Bezpieczne płatności i gwarancja jakości</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>📞 Kontakt</h4>
+                                <p>Masz pytania? <a href="kontakt.html">Skontaktuj się z nami</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <section class="related-products">
+                    <h2>Podobne produkty</h2>
+                    <div class="products-grid">
+                        <a href="kieliszki-niebieskie.html" class="related-product">
+                            <img src="images/products/lampkiniebieski/lampkinieb.jpg?v=1" alt="Kieliszki niebieskie">
+                            <h4>Kieliszki niebieskie</h4>
+                            <span class="price">189 zł</span>
+                        </a>
+                        <a href="kieliszki-eleganckie.html" class="related-product">
+                            <img src="images/products/lampki/lampki2.jpeg?v=1" alt="Kieliszki eleganckie">
+                            <h4>Kieliszki eleganckie</h4>
+                            <span class="price">199 zł</span>
+                        </a>
+                        <a href="kieliszki-artystyczne.html" class="related-product">
+                            <img src="images/products/lampki/lampki4.jpeg?v=1" alt="Kieliszki artystyczne">
+                            <h4>Kieliszki artystyczne</h4>
+                            <span class="price">219 zł</span>
+                        </a>
+                    </div>
+                    <div class="text-center" style="margin-top: 30px;">
+                        <a href="kieliszki.html" class="btn btn-ghost">Zobacz wszystkie kieliszki</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="handwritten">MDart</h3>
+                    <p>Tworzymy unikatowe wyroby z żywicy epoksydowej, które dodają charakteru każdemu wnętrzu.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>📧 kontakt@mdart.pl</p>
+                    <p>📱 +48 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Śledź nas</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">📷 Instagram</a>
+                        <a href="#" aria-label="Facebook">📘 Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MDart. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <span class="image-modal-close" onclick="closeModal()">&times;</span>
+        <span class="image-modal-nav image-modal-prev" onclick="event.stopPropagation(); prevImage()">‹</span>
+        <span class="image-modal-nav image-modal-next" onclick="event.stopPropagation(); nextImage()">›</span>
+        <img class="image-modal-content" id="modalImage" alt="Powiększone zdjęcie">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Product image gallery functionality
+        function changeImage(element, imageSrc) {
+            document.getElementById('mainImage').src = imageSrc;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Tablica zdjęć dla modala
+        const modalImages = [
+            'images/products/lampki/lampki.jpeg?v=1',
+            'images/products/lampki/lampki2.jpeg?v=1',
+            'images/products/lampki/lampki4.jpeg?v=1',
+            'images/products/lampki/lampki5.jpeg?v=1',
+            'images/products/lampki/lampkitaca.jpeg?v=1'
+        ];
+        let currentModalIndex = 0;
+
+        // Otwórz modal z powiększonym zdjęciem
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Znajdź indeks aktualnego zdjęcia
+            currentModalIndex = modalImages.indexOf(imageSrc);
+            if (currentModalIndex === -1) currentModalIndex = 0;
+            
+            modal.style.display = 'block';
+            modalImg.src = modalImages[currentModalIndex];
+        }
+
+        // Poprzednie zdjęcie
+        function prevImage() {
+            currentModalIndex = (currentModalIndex - 1 + modalImages.length) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        // Następne zdjęcie
+        function nextImage() {
+            currentModalIndex = (currentModalIndex + 1) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        // Zamknij modal
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Dodaj obsługę kliknięcia na główne zdjęcie
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.addEventListener('click', function() {
+                openModal(this.src);
+            });
+        });
+        
+        // Kontrola ilości
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+
+        // Dodaj do koszyka
+        function addToCart() {
+            const quantity = document.getElementById('quantity').value;
+            const productName = 'Kieliszki klasyczne';
+            const price = 179;
+            
+            alert(`Dodano do koszyka: ${productName} (${quantity} szt.) - ${price * quantity} zł`);
+        }
+
+        // Dodaj do ulubionych
+        function addToWishlist() {
+            alert('Dodano do ulubionych!');
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

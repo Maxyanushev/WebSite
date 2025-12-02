@@ -1,0 +1,266 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDart – Domino białe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-section">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <span class="current">Domino białe</span>
+                </nav>
+
+                <div class="product-page">
+                    <!-- Product Gallery -->
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/dominobiale/dominobiale3.jpg?v=2" alt="Domino białe - widok główny" loading="eager">
+                        </div>
+                        <div class="thumbnail-gallery">
+                            <img src="images/products/dominobiale/dominobiale3.jpg?v=2" alt="Domino białe - widok 1" class="thumbnail active" onclick="changeImage(this, 'images/products/dominobiale/dominobiale3.jpg?v=2')">
+                            <img src="images/products/dominobiale/dominobiale2.jpg?v=2" alt="Domino białe - widok 2" class="thumbnail" onclick="changeImage(this, 'images/products/dominobiale/dominobiale2.jpg?v=2')">
+                            <img src="images/products/dominobiale/dominobiale1.jpg?v=2" alt="Domino białe - widok 3" class="thumbnail" onclick="changeImage(this, 'images/products/dominobiale/dominobiale1.jpg?v=2')">
+                            <img src="images/products/dominobiale/dominobiale.jpg?v=2" alt="Domino białe - widok 4" class="thumbnail" onclick="changeImage(this, 'images/products/dominobiale/dominobiale.jpg?v=2')">
+                            <img src="images/products/dominobiale/dominobialee.jpg?v=2" alt="Domino białe - widok 5" class="thumbnail" onclick="changeImage(this, 'images/products/dominobiale/dominobialee.jpg?v=2')">
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Domino białe</h1>
+                        <div class="product-price-large">209 zł</div>
+                        
+                        <div class="product-description">
+                            <p class="lead">Eleganckie domino białe wykonane z wysokiej jakości żywicy epoksydowej. Klasyczne białe kostki z czarnymi kropkami tworzą niepowtarzalny zestaw do gry, który łączy tradycję z nowoczesnym designem.</p>
+                            
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed">
+                                <div class="spec-row">
+                                    <span class="spec-label">Rozmiar kostki:</span>
+                                    <span class="spec-value">Standardowy (2.5 x 1.25 x 0.5 cm)</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Liczba kostek:</span>
+                                    <span class="spec-value">28 sztuk</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Materiał:</span>
+                                    <span class="spec-value">Żywica epoksydowa</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Waga zestawu:</span>
+                                    <span class="spec-value">~150g</span>
+                                </div>
+                            </div>
+
+                            <h3>Materiały i wykonanie:</h3>
+                            <ul class="product-features">
+                                <li>Wysokiej jakości żywica epoksydowa</li>
+                                <li>Klasyczne białe kostki z czarnymi kropkami</li>
+                                <li>Każda kostka jest ręcznie wykonana</li>
+                                <li>Gładka powierzchnia idealna do gry</li>
+                                <li>Odporna na zarysowania i wilgoć</li>
+                                <li>Bezpieczna w kontakcie z żywnością</li>
+                            </ul>
+
+                            <h3>Zastosowanie:</h3>
+                            <p>Idealne do gry w domino w domu, na piknikach czy w podróży. Sprawdzi się także jako elegancka dekoracja lub prezent dla miłośników gier planszowych. Klasyczny design pasuje do każdego wnętrza.</p>
+                        </div>
+
+                        <!-- Add to Cart --><!-- <div class="add-to-cart-section">...</div> -->
+
+                        <!-- Additional Info -->
+                        <div class="product-additional-info">
+                            <div class="info-item">
+                                <h4>🚚 Dostawa</h4>
+                                <p>Darmowa dostawa przy zamówieniach powyżej 200 zł</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>🔒 Bezpieczeństwo</h4>
+                                <p>Bezpieczne płatności i gwarancja jakości</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>📞 Kontakt</h4>
+                                <p>Masz pytania? <a href="kontakt.html">Skontaktuj się z nami</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <section class="related-products">
+                    <h2>Podobne produkty</h2>
+                    <div class="products-grid">
+                        <a href="shop.html" class="related-product">
+                            <img src="images/products/dominobiale/dominobiale.jpg?v=1" alt="Inne produkty">
+                            <h4>Zobacz inne produkty</h4>
+                            <span class="price">Od 200 zł</span>
+                        </a>
+                    </div>
+                    <div class="text-center" style="margin-top: 30px;">
+                        <a href="shop.html" class="btn btn-ghost">Zobacz wszystkie produkty</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="handwritten">MDart</h3>
+                    <p>Tworzymy unikatowe wyroby z żywicy epoksydowej, które dodają charakteru każdemu wnętrzu.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>📧 kontakt@mdart.pl</p>
+                    <p>📱 +48 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Śledź nas</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">📷 Instagram</a>
+                        <a href="#" aria-label="Facebook">📘 Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MDart. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <span class="image-modal-close" onclick="closeModal()">&times;</span>
+        <span class="image-modal-nav image-modal-prev" onclick="event.stopPropagation(); prevImage()">‹</span>
+        <span class="image-modal-nav image-modal-next" onclick="event.stopPropagation(); nextImage()">›</span>
+        <img class="image-modal-content" id="modalImage" alt="Powiększone zdjęcie">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Product image gallery functionality
+        function changeImage(element, imageSrc) {
+            document.getElementById('mainImage').src = imageSrc;
+            
+            // Update active thumbnail
+            document.querySelectorAll('.thumbnail').forEach(thumb => {
+                thumb.classList.remove('active');
+            });
+            element.classList.add('active');
+        }
+
+        // Tablica zdjęć dla modala
+        const modalImages = [
+            'images/products/dominobiale/dominobiale3.jpg?v=2',
+            'images/products/dominobiale/dominobiale2.jpg?v=2',
+            'images/products/dominobiale/dominobiale1.jpg?v=2',
+            'images/products/dominobiale/dominobiale.jpg?v=2',
+            'images/products/dominobiale/dominobialee.jpg?v=2'
+        ];
+        let currentModalIndex = 0;
+
+        // Otwórz modal z powiększonym zdjęciem
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            // Znajdź indeks aktualnego zdjęcia
+            currentModalIndex = modalImages.indexOf(imageSrc);
+            if (currentModalIndex === -1) currentModalIndex = 0;
+            
+            modal.style.display = 'block';
+            modalImg.src = modalImages[currentModalIndex];
+        }
+
+        // Poprzednie zdjęcie
+        function prevImage() {
+            currentModalIndex = (currentModalIndex - 1 + modalImages.length) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        // Następne zdjęcie
+        function nextImage() {
+            currentModalIndex = (currentModalIndex + 1) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        // Zamknij modal
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Dodaj obsługę kliknięcia na główne zdjęcie
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            mainImage.addEventListener('click', function() {
+                openModal(this.src);
+            });
+        });
+        
+        // Kontrola ilości
+        function increaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue < 10) {
+                quantityInput.value = currentValue + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const quantityInput = document.getElementById('quantity');
+            const currentValue = parseInt(quantityInput.value);
+            if (currentValue > 1) {
+                quantityInput.value = currentValue - 1;
+            }
+        }
+
+        // Dodaj do koszyka
+        function addToCart() {
+            const quantity = document.getElementById('quantity').value;
+            const productName = 'Domino białe';
+            const price = 209;
+            
+            alert(`Dodano do koszyka: ${productName} (${quantity} szt.) - ${price * quantity} zł`);
+        }
+
+        // Dodaj do ulubionych
+        function addToWishlist() {
+            alert('Dodano do ulubionych!');
+        }
+    </script>
+</body>
+</html>

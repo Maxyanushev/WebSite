@@ -1,0 +1,443 @@
+﻿<!doctype html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>MDart – Narodziny Jezusa w kole</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Image Modal Styles */
+        .image-modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.9);
+            overflow: hidden;
+        }
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90vh;
+            object-fit: contain;
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+            z-index: 10000;
+            cursor: pointer;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+        }
+        .main-image img {
+            cursor: zoom-in;
+        }
+        .image-modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 36px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10001;
+            padding: 8px 16px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            user-select: none;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .image-modal-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+            color: var(--accent);
+        }
+        .image-modal-prev {
+            left: 20px;
+        }
+        .image-modal-next {
+            right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header" id="top">
+        <div class="container header-inner">
+            <a href="index.html" class="brand" aria-label="Strona główna MDart">
+                <span class="logo-hand">MDart</span>
+            </a>
+            <nav class="nav" aria-label="Główne menu">
+                <button class="nav-toggle" aria-expanded="false" aria-controls="primary-menu" aria-label="Otwórz menu">☰</button>
+                <ul id="primary-menu" class="menu">
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="shop.html">Sklep</a></li>
+                    <!-- <li><a href="warsztaty.html">Warsztaty</a></li> -->
+                    <!-- <li><a href="blog.html">Strefa wiedzy</a></li> -->
+                    <!-- <li><a href="wasze-slowa.html">Wasze słowa</a></li> -->
+                    <li><a href="kontakt.html">Kontakt</a></li>
+                </ul>
+            </nav>
+            
+            <!-- Header Actions --><!-- <div class="header-actions">...</div> -->
+                </div>
+                <a href="cart.html" class="cart-icon" aria-label="Koszyk">
+                    🛒
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="product-section">
+            <div class="container">
+                <!-- Breadcrumb -->
+                <nav class="breadcrumb" aria-label="Nawigacja">
+                    <a href="index.html">Strona główna</a>
+                    <span class="separator">›</span>
+                    <a href="shop.html">Sklep</a>
+                    <span class="separator">›</span>
+                    <a href="ozdoby-choinkowe.html">Ozdoby choinkowe</a>
+                    <span class="separator">›</span>
+                    <span class="current">Narodziny Jezusa w kole</span>
+                </nav>
+
+                <div class="product-page">
+                    <!-- Product Gallery -->
+                    <div class="product-gallery" data-reveal>
+                        <div class="main-image">
+                            <img id="mainImage" src="images/products/ozdobychoinkowe/NarodzinyJezusawkole/1.jpg" alt="Narodziny Jezusa w kole - widok główny" loading="eager" onclick="openModal(this.src)" style="cursor: zoom-in;">
+                        </div>
+                        <div class="thumbnail-gallery" id="thumbnailGallery">
+                            <img src="images/products/ozdobychoinkowe/NarodzinyJezusawkole/1.jpg" alt="Narodziny Jezusa w kole widok 1" class="thumbnail active" onclick="openModal(this.src)" style="cursor: pointer;">
+                            <img src="images/products/ozdobychoinkowe/NarodzinyJezusawkole/2.jpg" alt="Narodziny Jezusa w kole widok 2" class="thumbnail" onclick="openModal(this.src)" style="cursor: pointer;">
+                            <img src="images/products/ozdobychoinkowe/NarodzinyJezusawkole/3.jpg" alt="Narodziny Jezusa w kole widok 3" class="thumbnail" onclick="openModal(this.src)" style="cursor: pointer;">
+                        </div>
+                    </div>
+
+                    <!-- Product Info -->
+                    <div class="product-details" data-reveal>
+                        <h1 class="handwritten">Narodziny Jezusa w kole</h1>
+                        <div class="product-price-large" id="productPrice">25 zł</div>
+                        
+                        <div class="product-description">
+                            <p class="lead">Ta przepiękna ozdoba to coś więcej niż dekoracja. To symbol najważniejszego wydarzenia w historii – narodzin Chrystusa, zamknięty w okrągłej ramce symbolizującej wieczność. Wykonana z głębokim szacunkiem do tradycji i duchowego znaczenia tego momentu.</p>
+                            <p>Okrągła forma przypomina o pełni i wieczności, a scena narodzin o miłości, która przyszła na świat. Każda ozdoba powstaje ręcznie, z sercem i wiarą. Idealna dla rodzin, które chcą celebrować prawdziwy sens Świąt Bożego Narodzenia.</p>
+                            
+                            <h3>Szczegółowe wymiary:</h3>
+                            <div class="product-specs-detailed">
+                                <div class="spec-row">
+                                    <span class="spec-label">Średnica:</span>
+                                    <span class="spec-value">~8 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Grubość:</span>
+                                    <span class="spec-value">~0.5 cm</span>
+                                </div>
+                                <div class="spec-row">
+                                    <span class="spec-label">Materiał:</span>
+                                    <span class="spec-value">Żywica epoksydowa najwyższej jakości</span>
+                                </div>
+                            </div>
+
+                            <h3>Co ją wyróżnia?</h3>
+                            <ul class="product-features">
+                                <li>Scena narodzin Jezusa w okrągłej ramce – symbol wieczności</li>
+                                <li>Ręcznie wykonana z szacunkiem do tradycji religijnej</li>
+                                <li>Przejrzysta żywica najwyższej jakości pięknie prezentuje każdy szczegół</li>
+                                <li>Delikatne, ciepłe kolory oddające atmosferę świętej nocy</li>
+                                <li>Każda ozdoba jest unikatowa – nie ma dwóch identycznych</li>
+                                <li>Trwała forma zachowuje swój blask na lata</li>
+                                <li>Nadaje się jako wartościowy prezent dla osób wierzących</li>
+                            </ul>
+
+                            <div class="info-box" style="background: var(--cream); padding: 15px; border-radius: 8px; margin-top: 20px;">
+                                <p style="margin: 0;"><strong>Niepowtarzalny charakter:</strong> Każda ozdoba jest ręcznie wykonana z pasją, dlatego może delikatnie różnić się od prezentowanej. Ta naturalna różnorodność sprawia, że każdy egzemplarz ma własny charakter i niepowtarzalny urok.</p>
+                            </div>
+
+                            <p style="margin-top: 20px; font-style: italic; color: var(--brown);">Niech ta ozdoba przypomina o prawdziwym znaczeniu Świąt – o miłości, wierze i nadziei. Okrągła forma symbolizuje wieczność, a scena narodzin przypomina o cudzie, który zmienił świat.</p>
+                        </div>
+
+                        <!-- Add to Cart --><!-- <div class="add-to-cart-section">...</div> -->
+
+                        <!-- Additional Info -->
+                        <div class="product-additional-info">
+                            <div class="info-item">
+                                <h4>🚚 Dostawa</h4>
+                                <p>Darmowa dostawa przy zamówieniach powyżej 200 zł</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>🎄 Świąteczna ozdoba</h4>
+                                <p>Bezpieczna alternatywa dla szklanych ozdób</p>
+                            </div>
+                            <div class="info-item">
+                                <h4>📞 Kontakt</h4>
+                                <p>Masz pytania? <a href="kontakt.html">Skontaktuj się z nami</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Products -->
+                <section class="related-products">
+                    <h2>Inne ozdoby choinkowe</h2>
+                    <div class="products-grid">
+                        <!-- Add more Christmas decorations here as they become available -->
+                    </div>
+                    <div class="text-center" style="margin-top: 30px;">
+                        <a href="ozdoby-choinkowe.html" class="btn btn-ghost">Zobacz wszystkie ozdoby choinkowe</a>
+                    </div>
+                </section>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 class="handwritten">MDart</h3>
+                    <p>Tworzymy unikatowe wyroby z żywicy epoksydowej, które dodają charakteru każdemu wnętrzu.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Kontakt</h4>
+                    <p>📧 mdartzywica@gmail.com</p>
+                    <p>📱 +48 123 456 789</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Śledź nas</h4>
+                    <div class="social-links">
+                        <a href="#" aria-label="Instagram">📷 Instagram</a>
+                        <a href="#" aria-label="Facebook">📘 Facebook</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 MDart. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Image Modal -->
+    <div id="imageModal" class="image-modal" onclick="closeModal()">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <span class="image-modal-nav image-modal-prev" onclick="event.stopPropagation(); prevImage()">‹</span>
+        <span class="image-modal-nav image-modal-next" onclick="event.stopPropagation(); nextImage()">›</span>
+        <img class="modal-content" id="modalImage" onclick="event.stopPropagation()">
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // Thumbnail gallery functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainImage = document.getElementById('mainImage');
+            const thumbnails = document.querySelectorAll('.thumbnail');
+            
+            // Add click handlers to thumbnails
+            thumbnails.forEach(thumb => {
+                thumb.addEventListener('click', function() {
+                    mainImage.src = this.src;
+                    thumbnails.forEach(t => t.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Make main image clickable for modal
+            mainImage.style.cursor = 'pointer';
+            mainImage.addEventListener('click', function() {
+                openModal();
+            });
+        });
+
+        // Quantity controls
+        function increaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) < 10) {
+                input.value = parseInt(input.value) + 1;
+            }
+        }
+
+        function decreaseQuantity() {
+            const input = document.getElementById('quantity');
+            if (parseInt(input.value) > 1) {
+                input.value = parseInt(input.value) - 1;
+            }
+        }
+
+        // Add to cart
+        function addToCart() {
+            const quantity = document.getElementById('quantity').value;
+            const product = {
+                id: 'narodziny-jezusa-w-kole',
+                name: 'Narodziny Jezusa w kole',
+                price: 25,
+                image: 'images/products/ozdobychoinkowe/NarodzinyJezusawkole/1.jpg',
+                quantity: parseInt(quantity)
+            };
+            
+            let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            const existingItem = cartItems.find(item => item.id === product.id);
+            
+            if (existingItem) {
+                existingItem.quantity += product.quantity;
+            } else {
+                cartItems.push(product);
+            }
+            
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            
+            // Update cart count
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            document.getElementById('cartCount').textContent = totalItems;
+            
+            alert('Produkt dodany do koszyka!');
+        }
+
+        // Add to wishlist
+        function addToWishlist() {
+            const product = {
+                id: 'narodziny-jezusa-w-kole',
+                name: 'Narodziny Jezusa w kole',
+                price: 25,
+                image: 'images/products/ozdobychoinkowe/NarodzinyJezusawkole/1.jpg'
+            };
+            
+            let wishlistItems = JSON.parse(localStorage.getItem('wishlistItems')) || [];
+            const existingItem = wishlistItems.find(item => item.id === product.id);
+            
+            if (!existingItem) {
+                wishlistItems.push(product);
+                localStorage.setItem('wishlistItems', JSON.stringify(wishlistItems));
+                alert('Produkt dodany do ulubionych!');
+            } else {
+                alert('Ten produkt jest już w Twoich ulubionych!');
+            }
+        }
+
+        // Modal navigation functionality
+        let modalImages = [
+            'images/products/ozdobychoinkowe/NarodzinyJezusawkole/1.jpg',
+            'images/products/ozdobychoinkowe/NarodzinyJezusawkole/2.jpg',
+            'images/products/ozdobychoinkowe/NarodzinyJezusawkole/3.jpg'
+        ];
+        let currentModalIndex = 0;
+
+        function openModal(imageSrc) {
+            const modal = document.getElementById('imageModal');
+            const modalImg = document.getElementById('modalImage');
+            
+            currentModalIndex = modalImages.indexOf(imageSrc);
+            if (currentModalIndex === -1) currentModalIndex = 0;
+            
+            modal.style.display = 'block';
+            modalImg.src = modalImages[currentModalIndex];
+        }
+        
+        function prevImage() {
+            currentModalIndex = (currentModalIndex - 1 + modalImages.length) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+        
+        function nextImage() {
+            currentModalIndex = (currentModalIndex + 1) % modalImages.length;
+            document.getElementById('modalImage').src = modalImages[currentModalIndex];
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Cart and Recently Viewed functionality
+        let cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+        let recentlyViewed = JSON.parse(localStorage.getItem('recentlyViewed')) || [];
+
+        // Update cart count
+        function updateCartCount() {
+            const cartCount = document.getElementById('cartCount');
+            const totalItems = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+            cartCount.textContent = totalItems;
+        }
+
+        // Add to recently viewed
+        function addToRecentlyViewed(product) {
+            recentlyViewed = recentlyViewed.filter(item => item.id !== product.id);
+            recentlyViewed.unshift(product);
+            recentlyViewed = recentlyViewed.slice(0, 5);
+            localStorage.setItem('recentlyViewed', JSON.stringify(recentlyViewed));
+            updateRecentlyViewedDropdown();
+        }
+
+        // Update recently viewed dropdown
+        function updateRecentlyViewedDropdown() {
+            const container = document.getElementById('recentlyViewedItems');
+            if (recentlyViewed.length === 0) {
+                container.innerHTML = '<p style="color: var(--muted); font-size: 14px; margin: 0;">Brak ostatnio oglądanych produktów</p>';
+                return;
+            }
+
+            container.innerHTML = recentlyViewed.map(item => `
+                <a href="${item.url}" class="recently-viewed-item">
+                    <img src="${item.image}" alt="${item.name}">
+                    <div class="recently-viewed-item-info">
+                        <p class="recently-viewed-item-name">${item.name}</p>
+                        <p class="recently-viewed-item-price">${item.price} zł</p>
+                    </div>
+                </a>
+            `).join('');
+        }
+
+        // Toggle recently viewed dropdown
+        function toggleRecentlyViewed() {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const dropdown = document.getElementById('recentlyViewedDropdown');
+            const button = document.querySelector('.recently-viewed-btn');
+            if (!dropdown.contains(event.target) && !button.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            updateRecentlyViewedDropdown();
+            
+            // Add this product to recently viewed
+            addToRecentlyViewed({
+                id: 'narodziny-jezusa-w-kole',
+                name: 'Narodziny Jezusa w kole',
+                price: 25,
+                image: 'images/products/ozdobychoinkowe/NarodzinyJezusawkole/1.jpg',
+                url: 'narodziny-jezusa-w-kole.html'
+            });
+        });
+    </script>
+</body>
+</html>
+
