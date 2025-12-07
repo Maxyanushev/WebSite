@@ -339,13 +339,17 @@
             
             // Zmień cenę
             priceEl.textContent = variant.price + ' zł';
-            cartText.textContent = 'Dodaj do koszyka - ' + variant.price + ' zł';
+            if (cartText) {
+                cartText.textContent = 'Dodaj do koszyka - ' + variant.price + ' zł';
+            }
             
             // Zmień główne zdjęcie
             mainImage.src = variant.images[0];
+            mainImage.alt = 'Domek mały - ' + variant.name + ' - widok główny';
             
             // Zaktualizuj obrazy dla modala
             modalImages = variant.images;
+            currentModalIndex = 0;
             
             // Zmień miniaturki
             gallery.innerHTML = '';
@@ -354,13 +358,22 @@
                 thumb.src = img;
                 thumb.className = 'thumbnail' + (index === 0 ? ' active' : '');
                 thumb.style.cursor = 'pointer';
-                thumb.onclick = function() {
+                thumb.alt = 'Domek mały - ' + variant.name + ' - widok ' + (index + 1);
+                
+                // Обработчик клика на миниатюру - меняет главное изображение
+                thumb.addEventListener('click', function() {
                     mainImage.src = img;
                     document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
                     this.classList.add('active');
-                };
+                });
+                
                 gallery.appendChild(thumb);
             });
+            
+            // Обновить обработчик клика на главное изображение для модального окна
+            mainImage.onclick = function() {
+                openModal(mainImage.src);
+            };
             
             // Zaznacz wybrany wariant
             document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
